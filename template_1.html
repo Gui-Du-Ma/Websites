@@ -39,7 +39,7 @@
           <h1 class="font-serif text-xl sm:text-2xl font-semibold text-navy tracking-tight">{{NOME}}</h1>
           <span class="text-xs uppercase tracking-wider text-slateMuted font-medium border-l border-borderLight pl-3">{{CIDADE}}</span>
         </div>
-        <p class="text-xs text-slateMuted mt-0.5">{{ENDERECO}}</p>
+        <p class="text-xs text-slateMuted mt-0.5"><a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a></p>
       </div>
       <div class="flex items-center gap-4 self-start sm:self-auto">
         <div class="text-left sm:text-right">
@@ -79,7 +79,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-offwhite border border-borderLight rounded-sm p-4 text-xs">
             <div>
               <span class="font-semibold text-charcoal block mb-0.5">Localização</span>
-              <span class="text-slateMuted">{{ENDERECO}} — {{CIDADE}}</span>
+              <span class="text-slateMuted"><a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a> — {{CIDADE}}</span>
             </div>
             <div>
               <span class="font-semibold text-charcoal block mb-0.5">Horário de Funcionamento</span>
@@ -275,7 +275,7 @@
         </div>
         <div>
           <h4 class="font-semibold text-charcoal uppercase tracking-wider text-xs mb-2">Endereço</h4>
-          <p>{{ENDERECO}}</p>
+          <p><a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a></p>
           <p>{{CIDADE}}</p>
         </div>
         <div>
