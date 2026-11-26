@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Cadete — Odontologia em Sorocaba SP</title>
+  <meta name="description" content="Clínica Cadete em Sorocaba SP. Atendimento odontológico completo, avaliações verificadas e agendamento online via WhatsApp.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#F8FAFC',
+              100: '#F1F5F9',
+              500: '#0F766E',
+              600: '#0F766E',
+              700: '#0F766E',
+              800: '#0F766E',
+              900: '#0F766E',
+              950: '#0F172A'
+            }
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-brand-700 selection:text-white">
+
+  <!-- Barra de Informações Rápidas -->
+  <div class="bg-brand-950 text-brand-50/90 text-xs border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5">
+      <div class="flex items-center gap-2">
+        <svg class="w-3.5 h-3.5 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <span>R. José Maria Barbosa, 31 - 11º Andar - Jardim Portal da Colina, Sorocaba - SP, 18047-380 — <strong class="text-white font-semibold">Sorocaba SP</strong></span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          quinta-feira, 08:00 a 18:00
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegação Principal -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-700 text-white flex items-center justify-center shadow-sm">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-display text-lg sm:text-xl font-semibold text-slate-900 leading-tight">Clínica Cadete</span>
+          <span class="block text-xs text-slate-500 font-medium">Odontologia em Sorocaba SP</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#especialidades" class="hover:text-brand-700 transition-colors">Tratamentos</a>
+        <a href="#avaliacoes" class="hover:text-brand-700 transition-colors">Avaliações (4.5)</a>
+        <a href="#localizacao" class="hover:text-brand-700 transition-colors">Localização e Horário</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#agendamento" class="inline-flex items-center gap-2 bg-brand-700 hover:brightness-90 text-white text-xs sm:text-sm font-semibold px-5 py-3 rounded-xl shadow-sm transition-all">
+          <span>Agendar Consulta</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section de Alta Conversão com Formulário Integrado -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-white via-brand-50/40 to-slate-50 pt-10 pb-16 lg:py-20 border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+        <!-- Coluna Hero Texto -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2.5 bg-white border border-slate-200 px-3.5 py-1.5 rounded-full shadow-sm">
+            <span class="flex items-center text-amber-500">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </span>
+            <span class="text-xs font-semibold text-slate-800">Nota 4.5 de 5.0 no Google</span>
+            <span class="text-slate-300">|</span>
+            <span class="text-xs text-slate-600">Sorocaba SP</span>
+          </div>
+
+          <h1 class="font-display text-3xl sm:text-5xl font-semibold text-slate-900 tracking-tight leading-[1.15]">
+            Cuidado odontológico completo, transparente e com hora marcada em <span class="text-brand-700">Sorocaba SP</span>.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+            Na <strong class="text-slate-900 font-semibold">Clínica Cadete</strong>, você agenda sua avaliação ou tratamento de forma direta, com planejamento clínico claro desde a primeira consulta.
+          </p>
+
+          <!-- Cards de Informações Reais da Clínica -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-sm flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block">Endereço da Clínica</span>
+                <p class="text-sm font-semibold text-slate-800 mt-0.5">R. José Maria Barbosa, 31 - 11º Andar - Jardim Portal da Colina, Sorocaba - SP, 18047-380</p>
+                <p class="text-xs text-slate-500">Sorocaba SP</p>
+              </div>
+            </div>
+
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-sm flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block">Atendimento</span>
+                <p class="text-sm font-semibold text-slate-800 mt-0.5">quinta-feira, 08:00 a 18:00</p>
+                <p class="text-xs text-brand-700 font-medium mt-0.5">WhatsApp: 5515991171807</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Hero Formulário Direto para WhatsApp -->
+        <div id="agendamento" class="lg:col-span-5">
+          <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg shadow-slate-900/5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-700 block">Agendamento Rápido</span>
+                <h2 class="font-display text-2xl font-semibold text-slate-900 mt-0.5">Solicitar Consulta</h2>
+              </div>
+              <div class="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+              </div>
+            </div>
+
+            <form id="form-agendamento" class="space-y-4">
+              <div>
+                <label for="paciente-nome" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Seu Nome Completo
+                </label>
+                <input
+                  type="text"
+                  id="paciente-nome"
+                  name="nome"
+                  required
+                  placeholder="Digite seu nome"
+                  class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:bg-white transition-all"
+                >
+              </div>
+
+              <div>
+                <label for="paciente-procedimento" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Procedimento Desejado
+                </label>
+                <select
+                  id="paciente-procedimento"
+                  name="procedimento"
+                  required
+                  class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:bg-white transition-all"
+                >
+                  <option value="Limpeza/Avaliação">Limpeza / Avaliação</option>
+                  <option value="Clareamento">Clareamento</option>
+                  <option value="Implante">Implante</option>
+                  <option value="Ortodontia">Ortodontia</option>
+                  <option value="Prótese">Prótese</option>
+                  <option value="Urgência">Urgência</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="paciente-periodo" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Melhor Período para Atendimento
+                </label>
+                <select
+                  id="paciente-periodo"
+                  name="periodo"
+                  required
+                  class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:bg-white transition-all"
+                >
+                  <option value="Manhã">Manhã</option>
+                  <option value="Tarde">Tarde</option>
+                </select>
+              </div>
+
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  class="w-full bg-brand-700 hover:brightness-90 text-white font-semibold text-sm py-3.5 px-6 rounded-xl shadow-md shadow-brand-700/20 transition-all flex items-center justify-center gap-2"
+                >
+                  <span>Enviar Solicitação via WhatsApp</span>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </button>
+              </div>
+
+              <p class="text-center text-xs text-slate-500 pt-1">
+                Atendimento direto pelo número <strong class="text-slate-700">5515991171807</strong>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Tratamentos e Especialidades -->
+  <section id="especialidades" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <span class="text-xs font-bold uppercase tracking-widest text-brand-700 block">Especialidades Odontológicas</span>
+      <h2 class="font-display text-2xl sm:text-4xl font-semibold text-slate-900 mt-2">
+        Procedimentos realizados no consultório
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+        Conheça as áreas de atendimento disponíveis na Clínica Cadete para prevenção, estética, reabilitação e alívio de urgências.
+      </p>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-brand-600/50 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-11 h-11 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Limpeza e Avaliação Clínica</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Exame clínico minucioso, profilaxia profissional, remoção de tártaro e planejamento preventivo para manter dentes e gengivas saudáveis.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Limpeza/Avaliação" class="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 hover:text-brand-800">
+          <span>Agendar avaliação</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-brand-600/50 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-11 h-11 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Clareamento Dental</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Protocolos seguros realizados sob supervisão clínica para recuperação da luminosidade natural do sorriso com controle de sensibilidade.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Clareamento" class="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 hover:text-brand-800">
+          <span>Solicitar clareamento</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-brand-600/50 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-11 h-11 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Implantes Dentários</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Reabilitação oral com implantes unitários ou múltiplos para reposição fixa de dentes ausentes, devolvendo segurança ao mastigar.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Implante" class="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 hover:text-brand-800">
+          <span>Avaliação para implante</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-brand-600/50 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-11 h-11 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Ortodontia</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Planejamento e acompanhamento ortodôntico para alinhamento dentário, correção da mordida e melhora funcional da oclusão.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Ortodontia" class="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 hover:text-brand-800">
+          <span>Agendar avaliação ortodôntica</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-brand-600/50 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-11 h-11 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Prótese Odontológica</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Confecção e ajuste de coroas, próteses fixas e próteses removíveis sob medida para restabelecer a estética e a função mastigatória.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Prótese" class="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 hover:text-brand-800">
+          <span>Consultar sobre prótese</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-brand-600/50 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-11 h-11 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Atendimento de Urgência</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Cuidado prioritário para dor de dente aguda, fraturas dentárias, inchaços ou necessidade de reparo imediato em restaurações e próteses.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Urgência" class="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-rose-600 hover:text-rose-700">
+          <span>Solicitar atendimento de urgência</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Avaliações Verificadas no Google -->
+  <section id="avaliacoes" class="bg-white border-y border-slate-200/80 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-700 block">Depoimentos Reais</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-semibold text-slate-900 mt-2">
+            O que os pacientes dizem no Google
+          </h2>
+        </div>
+
+        <div class="inline-flex items-center gap-4 bg-slate-50 border border-slate-200 rounded-2xl px-5 py-3.5">
+          <div class="text-3xl font-bold text-slate-900">4.5</div>
+          <div>
+            <div class="flex items-center text-amber-500">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="text-xs text-slate-500 block mt-0.5">Média no Google Maps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-500 mb-3">
+              <span class="text-xs font-bold text-slate-700 bg-white border border-slate-200 px-2.5 py-0.5 rounded-full">Avaliação Verificada</span>
+            </div>
+            <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+              "Passo na Clínica Cadete há um tempo e, desde a primeira vez, sempre fui muito bem tratada. Cheguei toda acanhada e, desde o princípio, fizeram questão de me sentir em casa. Já tirei meu siso com o Dr. Eric, fiz clareamento, limpeza e até a extração do siso,..."
+            </p>
+          </div>
+          <footer class="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-xs text-slate-500">
+            <span>Google Maps — Sorocaba SP</span>
+            <span class="font-semibold text-brand-700">Nota 5.0</span>
+          </footer>
+        </article>
+
+        <article class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-500 mb-3">
+              <span class="text-xs font-bold text-slate-700 bg-white border border-slate-200 px-2.5 py-0.5 rounded-full">Avaliação Verificada</span>
+            </div>
+            <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+              "Sou de Campinas, nunca fui a sua clínica. Mas passando, para agradecer a empatia e o seu humano incrível, que são ( Dr Eric e Dr Ayslla Cadete). …"
+            </p>
+          </div>
+          <footer class="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-xs text-slate-500">
+            <span>Google Maps — Sorocaba SP</span>
+            <span class="font-semibold text-brand-700">Nota 5.0</span>
+          </footer>
+        </article>
+
+        <article class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-500 mb-3">
+              <span class="text-xs font-bold text-slate-700 bg-white border border-slate-200 px-2.5 py-0.5 rounded-full">Avaliação Verificada</span>
+            </div>
+            <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+              "Fui super bem atendida. O espaço é lindo e aconchegante. Os funcionários são acolhedores e nós deixa a vontade para dúvidas e esclarecimentos. E quanto a Ayslla ela tem a mão de fada. Leve e precisa. Recomendo demais o trabalho dela."
+            </p>
+          </div>
+          <footer class="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-xs text-slate-500">
+            <span>Google Maps — Sorocaba SP</span>
+            <span class="font-semibold text-brand-700">Nota 5.0</span>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Localização e Contato Direto -->
+  <section id="localizacao" class="py-16 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-brand-950 text-white rounded-3xl p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-8 space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-500 block">Canais de Atendimento</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-semibold">
+          Agende sua consulta na Clínica Cadete
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 text-sm text-brand-50/90">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-brand-500 font-semibold block mb-1">Endereço</span>
+            <p>R. José Maria Barbosa, 31 - 11º Andar - Jardim Portal da Colina, Sorocaba - SP, 18047-380</p>
+            <p class="text-white font-medium">Sorocaba SP</p>
+          </div>
+          <div>
+            <span class="text-xs uppercase tracking-wider text-brand-500 font-semibold block mb-1">Horário</span>
+            <p>quinta-feira, 08:00 a 18:00</p>
+          </div>
+          <div>
+            <span class="text-xs uppercase tracking-wider text-brand-500 font-semibold block mb-1">WhatsApp</span>
+            <p class="text-white font-semibold">5515991171807</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
+        <a href="#agendamento" class="w-full bg-brand-600 hover:brightness-90 text-white text-sm font-semibold py-3.5 px-6 rounded-xl text-center transition-colors">
+          Agendar pelo Formulário
+        </a>
+        <a href="#" data-wa-direct class="w-full bg-white/10 hover:bg-white/15 text-white border border-white/15 text-sm font-semibold py-3.5 px-6 rounded-xl text-center transition-colors">
+          Chamar no WhatsApp Agora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-white border-t border-slate-200 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div>
+        <strong class="text-slate-800 font-semibold">Clínica Cadete</strong> — R. José Maria Barbosa, 31 - 11º Andar - Jardim Portal da Colina, Sorocaba - SP, 18047-380 — Sorocaba SP
+      </div>
+      <div>
+        Horário: quinta-feira, 08:00 a 18:00 | WhatsApp: <a href="#" data-wa-direct class="text-brand-700 font-semibold hover:underline">5515991171807</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script de Agendamento Inteligente via WhatsApp -->
+  
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{NOME}} — Consultório Odontológico em {{CIDADE}}</title>
+  <meta name="description" content="{{NOME}} em {{CIDADE}}. Tratamentos odontológicos, avaliações de pacientes e agendamento de consulta.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            alabaster: '#FAFAF9',
+            graphite: '#1C1917',
+            stoneMuted: '#57534E',
+            stoneBorder: '#E7E5E4',
+            actionBlue: '{{COR_PRIMARIA}}'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-alabaster text-graphite font-sans antialiased selection:bg-actionBlue selection:text-white">
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8">
+
+    <!-- Cabeçalho Tipográfico Alinhado à Esquerda Separado por Linhas Finas Horizontais -->
+    <header class="pt-8 pb-6">
+      <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-4 pb-6">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-stoneMuted font-medium">Odontologia — {{CIDADE}}</p>
+          <h1 class="text-2xl sm:text-3xl font-semibold text-graphite tracking-tight mt-1">{{NOME}}</h1>
+        </div>
+        <div class="flex items-center gap-6 text-xs sm:text-sm">
+          <a href="#tratamentos" class="text-stoneMuted hover:text-graphite transition-colors">01. Tratamentos</a>
+          <a href="#avaliacoes" class="text-stoneMuted hover:text-graphite transition-colors">02. Avaliações</a>
+          <a href="#agendar" class="bg-actionBlue hover:brightness-90 text-white text-xs font-medium px-4 py-2.5 rounded-none transition-colors">
+            03. Agendar Consulta
+          </a>
+        </div>
+      </div>
+
+      <!-- Faixa de Dados Práticos com Linhas Horizontais Finas -->
+      <div class="border-t border-b border-stoneBorder py-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div>
+          <span class="text-stoneMuted block uppercase tracking-wider">Endereço</span>
+          <span class="text-graphite font-medium mt-0.5 block">{{ENDERECO}}</span>
+        </div>
+        <div>
+          <span class="text-stoneMuted block uppercase tracking-wider">Cidade</span>
+          <span class="text-graphite font-medium mt-0.5 block">{{CIDADE}}</span>
+        </div>
+        <div>
+          <span class="text-stoneMuted block uppercase tracking-wider">Expediente</span>
+          <span class="text-graphite font-medium mt-0.5 block">{{HORARIO}}</span>
+        </div>
+        <div>
+          <span class="text-stoneMuted block uppercase tracking-wider">Contato Direto / Google</span>
+          <span class="text-graphite font-medium mt-0.5 block">{{WHATSAPP}} — Nota {{NOTA}}/5.0</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="py-6 space-y-14">
+
+      <!-- 01. Tratamentos -->
+      <section id="tratamentos" class="pt-2">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-4">
+            <span class="text-xs font-semibold uppercase tracking-widest text-stoneMuted block">01. Tratamentos</span>
+            <h2 class="text-xl font-semibold text-graphite mt-1">Procedimentos Clínicos</h2>
+            <p class="text-xs sm:text-sm text-stoneMuted mt-2 leading-relaxed">
+              Atendimento individualizado com planejamento clínico detalhado e acompanhamento em todas as etapas.
+            </p>
+          </div>
+
+          <div class="md:col-span-8 border-t border-stoneBorder divide-y divide-stoneBorder">
+            <div class="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-sm font-semibold text-graphite sm:w-5/12">Limpeza e Avaliação Clínica</h3>
+              <p class="text-xs sm:text-sm text-stoneMuted sm:w-7/12">
+                Diagnóstico preventivo, profilaxia completa, remoção de cálculo dental e revisão de restaurações.
+              </p>
+            </div>
+
+            <div class="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-sm font-semibold text-graphite sm:w-5/12">Clareamento Dental</h3>
+              <p class="text-xs sm:text-sm text-stoneMuted sm:w-7/12">
+                Clareamento supervisionado com protocolo individualizado para preservar a integridade do esmalte e evitar sensibilidade.
+              </p>
+            </div>
+
+            <div class="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-sm font-semibold text-graphite sm:w-5/12">Implantodontia</h3>
+              <p class="text-xs sm:text-sm text-stoneMuted sm:w-7/12">
+                Reabilitação unitária ou múltipla com implantes osseointegrados para reposição funcional de dentes perdidos.
+              </p>
+            </div>
+
+            <div class="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-sm font-semibold text-graphite sm:w-5/12">Ortodontia</h3>
+              <p class="text-xs sm:text-sm text-stoneMuted sm:w-7/12">
+                Correção do alinhamento dentário e da oclusão com acompanhamento clínico periódico.
+              </p>
+            </div>
+
+            <div class="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-sm font-semibold text-graphite sm:w-5/12">Prótese Odontológica</h3>
+              <p class="text-xs sm:text-sm text-stoneMuted sm:w-7/12">
+                Coroas, facetas e próteses fixas ou removíveis confeccionadas com foco em adaptação, resistência e naturalidade.
+              </p>
+            </div>
+
+            <div class="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-sm font-semibold text-graphite sm:w-5/12">Urgência Odontológica</h3>
+              <p class="text-xs sm:text-sm text-stoneMuted sm:w-7/12">
+                Atendimento para controle imediato de dor aguda, fraturas dentárias ou intercorrências em próteses e restaurações.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02. Avaliações de Pacientes -->
+      <section id="avaliacoes" class="border-t border-stoneBorder pt-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-4">
+            <span class="text-xs font-semibold uppercase tracking-widest text-stoneMuted block">02. Avaliações de Pacientes</span>
+            <h2 class="text-xl font-semibold text-graphite mt-1">Registros no Google</h2>
+            <p class="text-xs sm:text-sm text-stoneMuted mt-2">
+              Nota média atual: <strong class="text-graphite font-semibold">{{NOTA}} / 5.0</strong>
+            </p>
+          </div>
+
+          <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <article class="border-t border-stoneBorder pt-4 flex flex-col justify-between">
+              <p class="text-xs sm:text-sm text-graphite leading-relaxed">
+                "{{AVALIACAO_1}}"
+              </p>
+              <span class="text-xs text-stoneMuted mt-4 block">Paciente verificado — Google ({{NOTA}})</span>
+            </article>
+
+            <article class="border-t border-stoneBorder pt-4 flex flex-col justify-between">
+              <p class="text-xs sm:text-sm text-graphite leading-relaxed">
+                "{{AVALIACAO_2}}"
+              </p>
+              <span class="text-xs text-stoneMuted mt-4 block">Paciente verificado — Google ({{NOTA}})</span>
+            </article>
+
+            <article class="border-t border-stoneBorder pt-4 flex flex-col justify-between">
+              <p class="text-xs sm:text-sm text-graphite leading-relaxed">
+                "{{AVALIACAO_3}}"
+              </p>
+              <span class="text-xs text-stoneMuted mt-4 block">Paciente verificado — Google ({{NOTA}})</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03. Agendar Consulta -->
+      <section id="agendar" class="border-t border-stoneBorder pt-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-4">
+            <span class="text-xs font-semibold uppercase tracking-widest text-stoneMuted block">03. Agendar Consulta</span>
+            <h2 class="text-xl font-semibold text-graphite mt-1">Atendimento via WhatsApp</h2>
+            <p class="text-xs sm:text-sm text-stoneMuted mt-2 leading-relaxed">
+              Selecione o procedimento e o período de sua preferência para enviar a solicitação diretamente à recepção do consultório.
+            </p>
+            <div class="mt-4 pt-4 border-t border-stoneBorder text-xs text-stoneMuted space-y-1">
+              <p><strong class="text-graphite">WhatsApp:</strong> {{WHATSAPP}}</p>
+              <p><strong class="text-graphite">Horário:</strong> {{HORARIO}}</p>
+            </div>
+          </div>
+
+          <div class="md:col-span-8 bg-white border border-stoneBorder p-6 sm:p-8">
+            <form id="form-agendamento" class="space-y-5">
+              <div>
+                <label for="paciente-nome" class="block text-xs font-semibold uppercase tracking-wider text-graphite mb-2">
+                  Nome do Paciente
+                </label>
+                <input
+                  type="text"
+                  id="paciente-nome"
+                  name="nome"
+                  required
+                  placeholder="Informe seu nome completo"
+                  class="w-full bg-alabaster border border-stoneBorder rounded-none px-3.5 py-2.5 text-sm text-graphite placeholder-stone-400 focus:outline-none focus:border-graphite"
+                >
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="paciente-procedimento" class="block text-xs font-semibold uppercase tracking-wider text-graphite mb-2">
+                    Procedimento
+                  </label>
+                  <select
+                    id="paciente-procedimento"
+                    name="procedimento"
+                    required
+                    class="w-full bg-alabaster border border-stoneBorder rounded-none px-3.5 py-2.5 text-sm text-graphite focus:outline-none focus:border-graphite"
+                  >
+                    <option value="Limpeza/Avaliação">Limpeza / Avaliação</option>
+                    <option value="Clareamento">Clareamento</option>
+                    <option value="Implante">Implante</option>
+                    <option value="Ortodontia">Ortodontia</option>
+                    <option value="Prótese">Prótese</option>
+                    <option value="Urgência">Urgência</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="paciente-periodo" class="block text-xs font-semibold uppercase tracking-wider text-graphite mb-2">
+                    Melhor Período
+                  </label>
+                  <select
+                    id="paciente-periodo"
+                    name="periodo"
+                    required
+                    class="w-full bg-alabaster border border-stoneBorder rounded-none px-3.5 py-2.5 text-sm text-graphite focus:outline-none focus:border-graphite"
+                  >
+                    <option value="Manhã">Manhã</option>
+                    <option value="Tarde">Tarde</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  class="w-full sm:w-auto bg-actionBlue hover:brightness-90 text-white text-xs uppercase tracking-wider font-semibold px-6 py-3.5 rounded-none transition-colors"
+                >
+                  Solicitar Horário pelo WhatsApp
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Rodapé Editorial -->
+    <footer class="border-t border-stoneBorder py-8 mt-12 text-xs text-stoneMuted flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <strong class="text-graphite font-semibold">{{NOME}}</strong> — {{ENDERECO}}, {{CIDADE}}
+      </div>
+      <div>
+        <span>{{HORARIO}}</span>
+        <span class="mx-2">|</span>
+        <a href="#" data-wa-direct class="text-graphite font-medium hover:underline">{{WHATSAPP}}</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Script de Agendamento Inteligente via WhatsApp -->
+  <script>
+    (function () {
+      var rawPhone = "{{WHATSAPP}}";
+      var cleanPhone = rawPhone.replace(/\D/g, "");
+      if (cleanPhone.length >= 10 && cleanPhone.length <= 11 && !cleanPhone.startsWith("55")) {
+        cleanPhone = "55" + cleanPhone;
+      }
+
+      var directLinks = document.querySelectorAll("[data-wa-direct]");
+      directLinks.forEach(function (link) {
+        if (cleanPhone) {
+          var defaultMsg = encodeURIComponent("Olá! Gostaria de informações sobre agendamento de consulta na " + "{{NOME}}" + ".");
+          link.setAttribute("href", "https://wa.me/" + cleanPhone + "?text=" + defaultMsg);
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        }
+      });
+
+      var form = document.getElementById("form-agendamento");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var nome = document.getElementById("paciente-nome").value.trim();
+          var procedimento = document.getElementById("paciente-procedimento").value;
+          var periodo = document.getElementById("paciente-periodo").value;
+
+          var mensagem = "Olá! Gostaria de solicitar o agendamento de uma consulta na {{NOME}}.\n\n" +
+            "*Nome:* " + nome + "\n" +
+            "*Procedimento:* " + procedimento + "\n" +
+            "*Período de preferência:* " + periodo;
+
+          var targetPhone = cleanPhone || "5500000000000";
+          var url = "https://wa.me/" + targetPhone + "?text=" + encodeURIComponent(mensagem);
+          window.open(url, "_blank", "noopener,noreferrer");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

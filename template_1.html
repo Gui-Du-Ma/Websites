@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{NOME}} — Odontologia em {{CIDADE}}</title>
+  <meta name="description" content="Consultório odontológico em {{CIDADE}}. Atendimento clínico, preventivo e reabilitação oral com agendamento direto.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            offwhite: '#F8F9FA',
+            navy: '{{COR_PRIMARIA}}',
+            borderLight: '#E2E8F0',
+            charcoal: '#1E293B',
+            slateMuted: '#475569'
+          },
+          fontFamily: {
+            serif: ['Lora', 'Georgia', 'serif'],
+            sans: ['DM Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-offwhite text-charcoal font-sans antialiased selection:bg-navy selection:text-white">
+
+  <!-- Barra Superior Funcional -->
+  <header class="bg-white border-b border-borderLight">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div>
+        <div class="flex items-baseline gap-3 flex-wrap">
+          <h1 class="font-serif text-xl sm:text-2xl font-semibold text-navy tracking-tight">{{NOME}}</h1>
+          <span class="text-xs uppercase tracking-wider text-slateMuted font-medium border-l border-borderLight pl-3">{{CIDADE}}</span>
+        </div>
+        <p class="text-xs text-slateMuted mt-0.5">{{ENDERECO}}</p>
+      </div>
+      <div class="flex items-center gap-4 self-start sm:self-auto">
+        <div class="text-left sm:text-right">
+          <span class="block text-xs text-slateMuted">Atendimento e Agendamento</span>
+          <a href="#" data-wa-direct class="text-sm font-semibold text-navy hover:underline">{{WHATSAPP}}</a>
+        </div>
+        <a href="#agendamento" class="bg-navy hover:brightness-90 text-white text-xs font-medium px-4 py-2.5 rounded-sm transition-colors">
+          Solicitar Horário
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal Acima da Dobra (Grade de 2 Colunas) -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Coluna Esquerda: Apresentação Objetiva + Lista Estruturada de Tratamentos -->
+      <div class="lg:col-span-7 space-y-6">
+        <section class="bg-white border border-borderLight rounded-sm p-6 sm:p-8">
+          <div class="border-b border-borderLight pb-4 mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <div>
+              <span class="text-xs uppercase tracking-wider text-slateMuted font-semibold">Consultório Odontológico</span>
+              <h2 class="font-serif text-2xl font-semibold text-navy mt-1">Atendimento Clínico e Especializado</h2>
+            </div>
+            <div class="bg-offwhite border border-borderLight px-3 py-1.5 rounded-sm text-left sm:text-right shrink-0">
+              <span class="text-xs text-slateMuted block">Avaliação no Google</span>
+              <span class="text-sm font-semibold text-charcoal">Nota {{NOTA}} / 5.0</span>
+            </div>
+          </div>
+
+          <p class="text-sm sm:text-base text-slateMuted leading-relaxed mb-6">
+            O consultório <strong class="text-charcoal font-medium">{{NOME}}</strong> realiza atendimento odontológico em {{CIDADE}}, com foco em diagnóstico preciso, conservação da estrutura dental e planejamento transparente de cada etapa do tratamento.
+          </p>
+
+          <!-- Informações Práticas Rápidas -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-offwhite border border-borderLight rounded-sm p-4 text-xs">
+            <div>
+              <span class="font-semibold text-charcoal block mb-0.5">Localização</span>
+              <span class="text-slateMuted">{{ENDERECO}} — {{CIDADE}}</span>
+            </div>
+            <div>
+              <span class="font-semibold text-charcoal block mb-0.5">Horário de Funcionamento</span>
+              <span class="text-slateMuted">{{HORARIO}}</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Lista Estruturada de Tratamentos -->
+        <section class="bg-white border border-borderLight rounded-sm p-6 sm:p-8">
+          <h3 class="font-serif text-lg font-semibold text-navy border-b border-borderLight pb-3 mb-5">
+            Áreas de Atuação e Procedimentos
+          </h3>
+
+          <div class="divide-y divide-borderLight">
+            <div class="py-3.5 first:pt-0">
+              <h4 class="text-sm font-semibold text-charcoal">Clínica Geral, Prevenção e Profilaxia</h4>
+              <p class="text-xs sm:text-sm text-slateMuted mt-1">
+                Consulta de avaliação clínica, remoção de tártaro (raspagem), profilaxia profissional, aplicação de flúor e restaurações em resina composta.
+              </p>
+            </div>
+
+            <div class="py-3.5">
+              <h4 class="text-sm font-semibold text-charcoal">Implantodontia e Reabilitação</h4>
+              <p class="text-xs sm:text-sm text-slateMuted mt-1">
+                Planejamento e instalação de implantes unitários ou múltiplos para reposição segura de dentes ausentes e recuperação da mastigação.
+              </p>
+            </div>
+
+            <div class="py-3.5">
+              <h4 class="text-sm font-semibold text-charcoal">Próteses Dentárias Fixas e Removíveis</h4>
+              <p class="text-xs sm:text-sm text-slateMuted mt-1">
+                Confecção de coroas, próteses sobre implantes e próteses parciais ou totais ajustadas para conforto funcional e adaptação adequada.
+              </p>
+            </div>
+
+            <div class="py-3.5">
+              <h4 class="text-sm font-semibold text-charcoal">Ortodontia</h4>
+              <p class="text-xs sm:text-sm text-slateMuted mt-1">
+                Acompanhamento ortodôntico para correção de alinhamento dentário e oclusão em jovens e adultos.
+              </p>
+            </div>
+
+            <div class="py-3.5">
+              <h4 class="text-sm font-semibold text-charcoal">Clareamento Dental Supervisionado</h4>
+              <p class="text-xs sm:text-sm text-slateMuted mt-1">
+                Protocolos de clareamento de consultório ou caseiro assistido, precedidos de exame clínico para proteção do esmalte e da gengiva.
+              </p>
+            </div>
+
+            <div class="py-3.5 last:pb-0">
+              <h4 class="text-sm font-semibold text-charcoal">Atendimento de Urgência Odontológica</h4>
+              <p class="text-xs sm:text-sm text-slateMuted mt-1">
+                Avaliação prioritária para quadros de dor aguda, fraturas dentárias, inflamações ou deslocamento de restaurações e próteses.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Coluna Direita: Formulário de Agendamento Direto para WhatsApp -->
+      <aside id="agendamento" class="lg:col-span-5">
+        <div class="bg-white border border-borderLight rounded-sm p-6 sm:p-8">
+          <div class="border-b border-borderLight pb-4 mb-5">
+            <span class="text-xs uppercase tracking-wider text-navy font-semibold">Agendamento Direto</span>
+            <h2 class="font-serif text-xl font-semibold text-charcoal mt-1">Solicitar Consulta via WhatsApp</h2>
+            <p class="text-xs text-slateMuted mt-1">
+              Preencha os dados abaixo para iniciar o atendimento diretamente com a recepção do consultório.
+            </p>
+          </div>
+
+          <form id="form-agendamento" class="space-y-4">
+            <div>
+              <label for="paciente-nome" class="block text-xs font-semibold text-charcoal uppercase tracking-wider mb-1.5">
+                Nome Completo
+              </label>
+              <input
+                type="text"
+                id="paciente-nome"
+                name="nome"
+                required
+                placeholder="Digite seu nome"
+                class="w-full bg-offwhite border border-borderLight rounded-sm px-3.5 py-2.5 text-sm text-charcoal placeholder-slate-400 focus:outline-none focus:border-navy focus:bg-white transition-colors"
+              >
+            </div>
+
+            <div>
+              <label for="paciente-procedimento" class="block text-xs font-semibold text-charcoal uppercase tracking-wider mb-1.5">
+                Procedimento de Interesse
+              </label>
+              <select
+                id="paciente-procedimento"
+                name="procedimento"
+                required
+                class="w-full bg-offwhite border border-borderLight rounded-sm px-3.5 py-2.5 text-sm text-charcoal focus:outline-none focus:border-navy focus:bg-white transition-colors"
+              >
+                <option value="Limpeza/Avaliação">Limpeza / Avaliação</option>
+                <option value="Clareamento">Clareamento</option>
+                <option value="Implante">Implante</option>
+                <option value="Ortodontia">Ortodontia</option>
+                <option value="Prótese">Prótese</option>
+                <option value="Urgência">Urgência</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="paciente-periodo" class="block text-xs font-semibold text-charcoal uppercase tracking-wider mb-1.5">
+                Melhor Período para Atendimento
+              </label>
+              <select
+                id="paciente-periodo"
+                name="periodo"
+                required
+                class="w-full bg-offwhite border border-borderLight rounded-sm px-3.5 py-2.5 text-sm text-charcoal focus:outline-none focus:border-navy focus:bg-white transition-colors"
+              >
+                <option value="Manhã">Manhã</option>
+                <option value="Tarde">Tarde</option>
+              </select>
+            </div>
+
+            <div class="pt-2">
+              <button
+                type="submit"
+                class="w-full bg-navy hover:brightness-90 text-white font-medium text-sm py-3 px-4 rounded-sm transition-colors text-center"
+              >
+                Continuar Agendamento no WhatsApp
+              </button>
+            </div>
+
+            <div class="border-t border-borderLight pt-4 mt-4 text-xs text-slateMuted space-y-1">
+              <p><strong class="text-charcoal">Telefone / WhatsApp:</strong> {{WHATSAPP}}</p>
+              <p><strong class="text-charcoal">Horário de atendimento:</strong> {{HORARIO}}</p>
+            </div>
+          </form>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- Seção de Avaliações Reais do Google -->
+    <section class="mt-10 bg-white border border-borderLight rounded-sm p-6 sm:p-8">
+      <div class="border-b border-borderLight pb-4 mb-6 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-slateMuted font-semibold">Relatos de Pacientes</span>
+          <h2 class="font-serif text-xl font-semibold text-navy mt-0.5">Avaliações Registradas no Google</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slateMuted">
+          Nota média verificada: <strong class="text-charcoal font-semibold">{{NOTA}} de 5.0</strong>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="bg-offwhite border border-borderLight rounded-sm p-5 flex flex-col justify-between">
+          <p class="text-sm text-charcoal leading-relaxed">
+            "{{AVALIACAO_1}}"
+          </p>
+          <footer class="mt-4 pt-3 border-t border-borderLight flex items-center justify-between text-xs text-slateMuted">
+            <span>Avaliação via Google Maps</span>
+            <span class="font-semibold text-navy">Nota 5.0</span>
+          </footer>
+        </article>
+
+        <article class="bg-offwhite border border-borderLight rounded-sm p-5 flex flex-col justify-between">
+          <p class="text-sm text-charcoal leading-relaxed">
+            "{{AVALIACAO_2}}"
+          </p>
+          <footer class="mt-4 pt-3 border-t border-borderLight flex items-center justify-between text-xs text-slateMuted">
+            <span>Avaliação via Google Maps</span>
+            <span class="font-semibold text-navy">Nota 5.0</span>
+          </footer>
+        </article>
+
+        <article class="bg-offwhite border border-borderLight rounded-sm p-5 flex flex-col justify-between">
+          <p class="text-sm text-charcoal leading-relaxed">
+            "{{AVALIACAO_3}}"
+          </p>
+          <footer class="mt-4 pt-3 border-t border-borderLight flex items-center justify-between text-xs text-slateMuted">
+            <span>Avaliação via Google Maps</span>
+            <span class="font-semibold text-navy">Nota 5.0</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé com Endereço e Horário -->
+  <footer class="bg-white border-t border-borderLight mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm text-slateMuted">
+        <div>
+          <h3 class="font-serif text-base font-semibold text-navy mb-2">{{NOME}}</h3>
+          <p>Atendimento odontológico em {{CIDADE}}.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-charcoal uppercase tracking-wider text-xs mb-2">Endereço</h4>
+          <p>{{ENDERECO}}</p>
+          <p>{{CIDADE}}</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-charcoal uppercase tracking-wider text-xs mb-2">Horário e Contato</h4>
+          <p>Horário: {{HORARIO}}</p>
+          <p class="mt-1">WhatsApp: <a href="#" data-wa-direct class="text-navy font-medium hover:underline">{{WHATSAPP}}</a></p>
+        </div>
+      </div>
+      <div class="border-t border-borderLight mt-6 pt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs text-slateMuted gap-2">
+        <p>{{NOME}} — Todos os direitos reservados.</p>
+        <p>{{CIDADE}}</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script de Agendamento Inteligente via WhatsApp -->
+  <script>
+    (function () {
+      var rawPhone = "{{WHATSAPP}}";
+      var cleanPhone = rawPhone.replace(/\D/g, "");
+      if (cleanPhone.length >= 10 && cleanPhone.length <= 11 && !cleanPhone.startsWith("55")) {
+        cleanPhone = "55" + cleanPhone;
+      }
+
+      var directLinks = document.querySelectorAll("[data-wa-direct]");
+      directLinks.forEach(function (link) {
+        if (cleanPhone) {
+          var defaultMsg = encodeURIComponent("Olá! Gostaria de informações sobre agendamento de consulta na " + "{{NOME}}" + ".");
+          link.setAttribute("href", "https://wa.me/" + cleanPhone + "?text=" + defaultMsg);
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        }
+      });
+
+      var form = document.getElementById("form-agendamento");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var nome = document.getElementById("paciente-nome").value.trim();
+          var procedimento = document.getElementById("paciente-procedimento").value;
+          var periodo = document.getElementById("paciente-periodo").value;
+
+          var mensagem = "Olá! Gostaria de solicitar o agendamento de uma consulta na {{NOME}}.\n\n" +
+            "*Nome:* " + nome + "\n" +
+            "*Procedimento:* " + procedimento + "\n" +
+            "*Período de preferência:* " + periodo;
+
+          var targetPhone = cleanPhone || "5500000000000";
+          var url = "https://wa.me/" + targetPhone + "?text=" + encodeURIComponent(mensagem);
+          window.open(url, "_blank", "noopener,noreferrer");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

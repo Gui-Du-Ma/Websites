@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{NOME}} — Atendimento Odontológico em {{CIDADE}}</title>
+  <meta name="description" content="{{NOME}} em {{CIDADE}}. Especialidades odontológicas, avaliações de pacientes e agendamento direto pelo WhatsApp.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clinicalTeal: '{{COR_PRIMARIA}}',
+            borderGray: '#E2E8F0',
+            surfaceGray: '#F8FAFC',
+            ink: '#0F172A',
+            inkMuted: '#475569'
+          },
+          fontFamily: {
+            sans: ['IBM Plex Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-ink font-sans antialiased selection:bg-clinicalTeal selection:text-white">
+
+  <!-- Cabeçalho Compacto com Endereço e Horário Visíveis -->
+  <header class="border-b border-borderGray bg-white">
+    <div class="bg-surfaceGray border-b border-borderGray text-xs text-inkMuted">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+        <div>
+          <strong class="text-ink font-medium">Endereço:</strong> {{ENDERECO}} — {{CIDADE}}
+        </div>
+        <div>
+          <strong class="text-ink font-medium">Horário:</strong> {{HORARIO}}
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-wider text-clinicalTeal block">Odontologia Clínica — {{CIDADE}}</span>
+        <h1 class="text-xl sm:text-2xl font-bold text-ink tracking-tight mt-0.5">{{NOME}}</h1>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="#avaliacoes" class="border border-borderGray bg-surfaceGray px-3 py-2 rounded-none text-xs text-inkMuted hover:border-slate-300 transition-colors">
+          Google: <strong class="text-ink font-semibold">{{NOTA}} / 5.0</strong>
+        </a>
+        <a href="#agendamento" class="bg-clinicalTeal hover:brightness-90 text-white text-xs font-semibold px-4 py-2.5 rounded-none transition-colors">
+          Agendar Consulta ({{WHATSAPP}})
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Abertura Imediata: Faixa Estruturada de Especialidades + Bloco Lateral de Contato Rápido -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Faixa Estruturada de Especialidades (Alinhada à Esquerda, sem ícones genéricos) -->
+      <section class="lg:col-span-8">
+        <div class="border-b border-borderGray pb-3 mb-6 flex items-baseline justify-between">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-ink">Especialidades e Procedimentos Clínicos</h2>
+            <p class="text-xs sm:text-sm text-inkMuted mt-0.5">
+              Atendimento com hora marcada para prevenção, estética dental, reabilitação e urgências.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 border-t border-l border-borderGray">
+          <div class="p-5 border-r border-b border-borderGray bg-white">
+            <span class="text-xs font-semibold uppercase tracking-wider text-clinicalTeal block mb-1">Preventivo e Rotina</span>
+            <h3 class="text-base font-semibold text-ink">Limpeza e Avaliação Clínica</h3>
+            <p class="text-xs sm:text-sm text-inkMuted mt-1.5 leading-relaxed">
+              Exame clínico detalhado, profilaxia com remoção de placa e tártaro, orientações de higiene e diagnóstico preventivo de cáries e gengivite.
+            </p>
+          </div>
+
+          <div class="p-5 border-r border-b border-borderGray bg-white">
+            <span class="text-xs font-semibold uppercase tracking-wider text-clinicalTeal block mb-1">Estética Dental</span>
+            <h3 class="text-base font-semibold text-ink">Clareamento Supervisionado</h3>
+            <p class="text-xs sm:text-sm text-inkMuted mt-1.5 leading-relaxed">
+              Avaliação prévia da saúde bucal e aplicação controlada de gel clareador em consultório ou moldeiras personalizadas sob acompanhamento.
+            </p>
+          </div>
+
+          <div class="p-5 border-r border-b border-borderGray bg-white">
+            <span class="text-xs font-semibold uppercase tracking-wider text-clinicalTeal block mb-1">Reabilitação Oral</span>
+            <h3 class="text-base font-semibold text-ink">Implantes Dentários</h3>
+            <p class="text-xs sm:text-sm text-inkMuted mt-1.5 leading-relaxed">
+              Substituição de raízes dentárias perdidas por implantes de titânio, devolvendo estabilidade para mastigação com segurança cirúrgica.
+            </p>
+          </div>
+
+          <div class="p-5 border-r border-b border-borderGray bg-white">
+            <span class="text-xs font-semibold uppercase tracking-wider text-clinicalTeal block mb-1">Alinhamento e Oclusão</span>
+            <h3 class="text-base font-semibold text-ink">Ortodontia</h3>
+            <p class="text-xs sm:text-sm text-inkMuted mt-1.5 leading-relaxed">
+              Estudo ortodôntico e acompanhamento periódico para correção do posicionamento dos dentes e equilíbrio da mordida.
+            </p>
+          </div>
+
+          <div class="p-5 border-r border-b border-borderGray bg-white">
+            <span class="text-xs font-semibold uppercase tracking-wider text-clinicalTeal block mb-1">Prótese Odontológica</span>
+            <h3 class="text-base font-semibold text-ink">Próteses Fixas e Removíveis</h3>
+            <p class="text-xs sm:text-sm text-inkMuted mt-1.5 leading-relaxed">
+              Reconstrução funcional e estética por meio de coroas unitárias, pontes fixas ou próteses removíveis planejadas sob medida.
+            </p>
+          </div>
+
+          <div class="p-5 border-r border-b border-borderGray bg-white">
+            <span class="text-xs font-semibold uppercase tracking-wider text-clinicalTeal block mb-1">Pronto Atendimento</span>
+            <h3 class="text-base font-semibold text-ink">Urgência Odontológica</h3>
+            <p class="text-xs sm:text-sm text-inkMuted mt-1.5 leading-relaxed">
+              Intervenção rápida para alívio de dor de dente aguda, abscessos, fraturas por trauma ou queda de coroas provisórias.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bloco Lateral de Contato Rápido -->
+      <aside class="lg:col-span-4 space-y-4">
+        <div class="border border-borderGray bg-surfaceGray p-6">
+          <span class="text-xs font-semibold uppercase tracking-wider text-clinicalTeal block">Atendimento ao Paciente</span>
+          <h2 class="text-lg font-bold text-ink mt-1">Informações de Contato</h2>
+
+          <dl class="mt-4 space-y-3 text-xs sm:text-sm border-t border-borderGray pt-4">
+            <div>
+              <dt class="font-semibold text-ink">Unidade</dt>
+              <dd class="text-inkMuted mt-0.5">{{NOME}} — {{CIDADE}}</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-ink">Endereço Completo</dt>
+              <dd class="text-inkMuted mt-0.5">{{ENDERECO}}</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-ink">Horário de Atendimento</dt>
+              <dd class="text-inkMuted mt-0.5">{{HORARIO}}</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-ink">WhatsApp da Recepção</dt>
+              <dd class="text-ink font-medium mt-0.5">{{WHATSAPP}}</dd>
+            </div>
+          </dl>
+
+          <div class="mt-6 pt-4 border-t border-borderGray flex flex-col gap-2.5">
+            <a href="#agendamento" class="w-full bg-clinicalTeal hover:brightness-90 text-white text-xs font-semibold py-3 px-4 text-center transition-colors">
+              Preencher Solicitação de Horário
+            </a>
+            <a href="#" data-wa-direct class="w-full bg-white hover:bg-slate-100 text-ink border border-borderGray text-xs font-semibold py-2.5 px-4 text-center transition-colors">
+              Falar Direto pelo WhatsApp
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- Seção de Depoimentos com Nota do Google em Destaque Sóbrio -->
+    <section id="avaliacoes" class="mt-12 pt-8 border-t border-borderGray">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-4 border border-borderGray bg-surfaceGray p-6">
+          <span class="text-xs font-semibold uppercase tracking-wider text-clinicalTeal block">Avaliações Verificadas</span>
+          <h2 class="text-lg font-bold text-ink mt-1">Índice de Satisfação dos Pacientes</h2>
+          <div class="mt-4 pt-4 border-t border-borderGray flex items-baseline gap-3">
+            <span class="text-3xl font-bold text-ink">{{NOTA}}</span>
+            <span class="text-xs text-inkMuted">de 5.0 na ficha do Google Maps</span>
+          </div>
+          <p class="text-xs text-inkMuted mt-3 leading-relaxed">
+            Comentários públicos deixados por pacientes atendidos na clínica em {{CIDADE}}.
+          </p>
+        </div>
+
+        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <article class="border border-borderGray p-5 bg-white flex flex-col justify-between">
+            <p class="text-xs sm:text-sm text-ink leading-relaxed">
+              "{{AVALIACAO_1}}"
+            </p>
+            <div class="mt-4 pt-3 border-t border-borderGray text-xs text-inkMuted flex justify-between">
+              <span>Google Maps</span>
+              <span class="font-semibold text-clinicalTeal">5.0 / 5.0</span>
+            </div>
+          </article>
+
+          <article class="border border-borderGray p-5 bg-white flex flex-col justify-between">
+            <p class="text-xs sm:text-sm text-ink leading-relaxed">
+              "{{AVALIACAO_2}}"
+            </p>
+            <div class="mt-4 pt-3 border-t border-borderGray text-xs text-inkMuted flex justify-between">
+              <span>Google Maps</span>
+              <span class="font-semibold text-clinicalTeal">5.0 / 5.0</span>
+            </div>
+          </article>
+
+          <article class="border border-borderGray p-5 bg-white flex flex-col justify-between">
+            <p class="text-xs sm:text-sm text-ink leading-relaxed">
+              "{{AVALIACAO_3}}"
+            </p>
+            <div class="mt-4 pt-3 border-t border-borderGray text-xs text-inkMuted flex justify-between">
+              <span>Google Maps</span>
+              <span class="font-semibold text-clinicalTeal">5.0 / 5.0</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulário de Agendamento -->
+    <section id="agendamento" class="mt-12 pt-8 border-t border-borderGray">
+      <div class="border border-borderGray bg-surfaceGray p-6 sm:p-8">
+        <div class="max-w-3xl">
+          <span class="text-xs font-semibold uppercase tracking-wider text-clinicalTeal block">Agendamento Rápido</span>
+          <h2 class="text-xl font-bold text-ink mt-1">Solicitar Horário pelo WhatsApp</h2>
+          <p class="text-xs sm:text-sm text-inkMuted mt-1">
+            Informe seu nome, o procedimento desejado e o turno de preferência. Sua mensagem será encaminhada pronta para o WhatsApp da clínica.
+          </p>
+        </div>
+
+        <form id="form-agendamento" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+          <div>
+            <label for="paciente-nome" class="block text-xs font-semibold text-ink uppercase tracking-wider mb-1.5">
+              Nome do Paciente
+            </label>
+            <input
+              type="text"
+              id="paciente-nome"
+              name="nome"
+              required
+              placeholder="Nome completo"
+              class="w-full bg-white border border-borderGray rounded-none px-3.5 py-2.5 text-sm text-ink placeholder-slate-400 focus:outline-none focus:border-clinicalTeal"
+            >
+          </div>
+
+          <div>
+            <label for="paciente-procedimento" class="block text-xs font-semibold text-ink uppercase tracking-wider mb-1.5">
+              Procedimento
+            </label>
+            <select
+              id="paciente-procedimento"
+              name="procedimento"
+              required
+              class="w-full bg-white border border-borderGray rounded-none px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-clinicalTeal"
+            >
+              <option value="Limpeza/Avaliação">Limpeza / Avaliação</option>
+              <option value="Clareamento">Clareamento</option>
+              <option value="Implante">Implante</option>
+              <option value="Ortodontia">Ortodontia</option>
+              <option value="Prótese">Prótese</option>
+              <option value="Urgência">Urgência</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="paciente-periodo" class="block text-xs font-semibold text-ink uppercase tracking-wider mb-1.5">
+              Melhor Período
+            </label>
+            <select
+              id="paciente-periodo"
+              name="periodo"
+              required
+              class="w-full bg-white border border-borderGray rounded-none px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-clinicalTeal"
+            >
+              <option value="Manhã">Manhã</option>
+              <option value="Tarde">Tarde</option>
+            </select>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              class="w-full bg-clinicalTeal hover:brightness-90 text-white font-semibold text-sm py-2.5 px-4 rounded-none transition-colors"
+            >
+              Enviar para WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="border-t border-borderGray bg-surfaceGray mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-inkMuted">
+      <div>
+        <strong class="text-ink font-semibold">{{NOME}}</strong> — {{ENDERECO}} — {{CIDADE}}
+      </div>
+      <div>
+        Horário: {{HORARIO}} | WhatsApp: <a href="#" data-wa-direct class="text-clinicalTeal font-semibold hover:underline">{{WHATSAPP}}</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script de Agendamento Inteligente via WhatsApp -->
+  <script>
+    (function () {
+      var rawPhone = "{{WHATSAPP}}";
+      var cleanPhone = rawPhone.replace(/\D/g, "");
+      if (cleanPhone.length >= 10 && cleanPhone.length <= 11 && !cleanPhone.startsWith("55")) {
+        cleanPhone = "55" + cleanPhone;
+      }
+
+      var directLinks = document.querySelectorAll("[data-wa-direct]");
+      directLinks.forEach(function (link) {
+        if (cleanPhone) {
+          var defaultMsg = encodeURIComponent("Olá! Gostaria de informações sobre agendamento de consulta na " + "{{NOME}}" + ".");
+          link.setAttribute("href", "https://wa.me/" + cleanPhone + "?text=" + defaultMsg);
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        }
+      });
+
+      var form = document.getElementById("form-agendamento");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var nome = document.getElementById("paciente-nome").value.trim();
+          var procedimento = document.getElementById("paciente-procedimento").value;
+          var periodo = document.getElementById("paciente-periodo").value;
+
+          var mensagem = "Olá! Gostaria de solicitar o agendamento de uma consulta na {{NOME}}.\n\n" +
+            "*Nome:* " + nome + "\n" +
+            "*Procedimento:* " + procedimento + "\n" +
+            "*Período de preferência:* " + periodo;
+
+          var targetPhone = cleanPhone || "5500000000000";
+          var url = "https://wa.me/" + targetPhone + "?text=" + encodeURIComponent(mensagem);
+          window.open(url, "_blank", "noopener,noreferrer");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
