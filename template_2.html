@@ -35,7 +35,7 @@
     <div class="bg-surfaceGray border-b border-borderGray text-xs text-inkMuted">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
         <div>
-          <strong class="text-ink font-medium">Endereço:</strong> {{ENDERECO}} — {{CIDADE}}
+          <strong class="text-ink font-medium">Endereço:</strong> <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a> — {{CIDADE}}
         </div>
         <div>
           <strong class="text-ink font-medium">Horário:</strong> {{HORARIO}}
@@ -138,7 +138,7 @@
             </div>
             <div>
               <dt class="font-semibold text-ink">Endereço Completo</dt>
-              <dd class="text-inkMuted mt-0.5">{{ENDERECO}}</dd>
+              <dd class="text-inkMuted mt-0.5"><a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a></dd>
             </div>
             <div>
               <dt class="font-semibold text-ink">Horário de Atendimento</dt>
@@ -289,7 +289,7 @@
   <footer class="border-t border-borderGray bg-surfaceGray mt-12">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-inkMuted">
       <div>
-        <strong class="text-ink font-semibold">{{NOME}}</strong> — {{ENDERECO}} — {{CIDADE}}
+        <strong class="text-ink font-semibold">{{NOME}}</strong> — <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a> — {{CIDADE}}
       </div>
       <div>
         Horário: {{HORARIO}} | WhatsApp: <a href="#" data-wa-direct class="text-clinicalTeal font-semibold hover:underline">{{WHATSAPP}}</a>

@@ -52,7 +52,7 @@
       <div class="border-t border-b border-stoneBorder py-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
         <div>
           <span class="text-stoneMuted block uppercase tracking-wider">Endereço</span>
-          <span class="text-graphite font-medium mt-0.5 block">{{ENDERECO}}</span>
+          <span class="text-graphite font-medium mt-0.5 block"><a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a></span>
         </div>
         <div>
           <span class="text-stoneMuted block uppercase tracking-wider">Cidade</span>
@@ -249,7 +249,7 @@
     <!-- Rodapé Editorial -->
     <footer class="border-t border-stoneBorder py-8 mt-12 text-xs text-stoneMuted flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
-        <strong class="text-graphite font-semibold">{{NOME}}</strong> — {{ENDERECO}}, {{CIDADE}}
+        <strong class="text-graphite font-semibold">{{NOME}}</strong> — <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a>, {{CIDADE}}
       </div>
       <div>
         <span>{{HORARIO}}</span>

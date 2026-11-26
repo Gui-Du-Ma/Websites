@@ -468,6 +468,7 @@ def main():
                         continue
 
                     # Extrai os demais dados para a clínica aprovada
+                    link_maps = page.url
                     endereco = extract_address(page)
                     horario = extract_hours(page)
                     avaliacoes = extract_reviews(page)
@@ -477,6 +478,7 @@ def main():
                         "CIDADE": cidade,
                         "WHATSAPP": whatsapp,
                         "ENDERECO": endereco,
+                        "LINK_MAPS": link_maps,
                         "HORARIO": horario,
                         "NOTA": f"{nota_num:.1f}",
                         "AVALIACAO_1": avaliacoes[0],

@@ -12,6 +12,7 @@ import json
 import re
 import unicodedata
 from pathlib import Path
+from urllib.parse import quote_plus
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -34,6 +35,7 @@ PLACEHOLDERS = [
     "CIDADE",
     "WHATSAPP",
     "ENDERECO",
+    "LINK_MAPS",
     "HORARIO",
     "NOTA",
     "AVALIACAO_1",
@@ -64,6 +66,15 @@ def normalize_hex_color(color_value: str, template_id: str) -> str:
     return default_hex
 
 
+def resolve_maps_link(link_maps: str, endereco: str) -> str:
+    """Retorna o link do Google Maps informado ou gera um link de busca automático pelo endereço."""
+    cleaned_link = str(link_maps or "").strip()
+    if cleaned_link:
+        return cleaned_link
+    addr = str(endereco or "").strip()
+    return f"https://www.google.com/maps/search/?api=1&query={quote_plus(addr)}"
+
+
 def render_template(template_id: str, data: dict) -> str:
     tid = str(template_id)
     template_path = TEMPLATES.get(tid)
@@ -73,10 +84,15 @@ def render_template(template_id: str, data: dict) -> str:
     content = template_path.read_text(encoding="utf-8")
 
     # Prepara os dados garantindo que COR_PRIMARIA use o padrão do template caso omitida
+    # e que LINK_MAPS sempre tenha um link válido (informado ou gerado pelo endereço)
     merged_data = dict(data)
     merged_data["COR_PRIMARIA"] = normalize_hex_color(
         merged_data.get("COR_PRIMARIA", merged_data.get("cor_primaria", "")),
         tid,
+    )
+    merged_data["LINK_MAPS"] = resolve_maps_link(
+        merged_data.get("LINK_MAPS", merged_data.get("link_maps", "")),
+        merged_data.get("ENDERECO", merged_data.get("endereco", "")),
     )
 
     for key in PLACEHOLDERS:
@@ -211,6 +227,7 @@ def interactive_mode():
         ("CIDADE", "Cidade / UF"),
         ("WHATSAPP", "WhatsApp (ex: (11) 99999-9999)"),
         ("ENDERECO", "Endereço completo"),
+        ("LINK_MAPS", "Link do Google Maps (opcional, Enter para gerar pelo endereço)"),
         ("HORARIO", "Horário de funcionamento (ex: Seg a Sex, 08h às 18h)"),
         ("NOTA", "Nota no Google (ex: 4.9)"),
         ("AVALIACAO_1", "Avaliação real 1 do Google"),
