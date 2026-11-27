@@ -21,6 +21,8 @@ TEMPLATES = {
     "2": BASE_DIR / "template_2.html",
     "3": BASE_DIR / "template_3.html",
     "4": BASE_DIR / "template_4.html",
+    "5": BASE_DIR / "template_5.html",
+    "6": BASE_DIR / "template_6.html",
 }
 
 DEFAULT_COLORS = {
@@ -28,6 +30,8 @@ DEFAULT_COLORS = {
     "2": "#0F766E",
     "3": "#1E40AF",
     "4": "#0F766E",
+    "5": "#0F766E",
+    "6": "#0F766E",
 }
 
 PLACEHOLDERS = [
@@ -210,14 +214,14 @@ def generate_page(
 
 def generate_all_styles(data: dict, output_dir: Path = BASE_DIR / "gerados") -> list[Path]:
     paths = []
-    for tid in ("1", "2", "3", "4"):
+    for tid in ("1", "2", "3", "4", "5", "6"):
         paths.append(generate_page(data, tid, output_dir, append_style_suffix=True))
     return paths
 
 
 def interactive_mode():
     print("=" * 60)
-    print(" GERADOR LOCAL DE LANDING PAGES ODONTOLÓGICAS (4 ESTILOS)")
+    print(" GERADOR LOCAL DE LANDING PAGES ODONTOLÓGICAS (6 ESTILOS)")
     print("=" * 60)
     print("Preencha os dados reais da clínica para gerar a pasta de deploy:\n")
 
@@ -240,17 +244,17 @@ def interactive_mode():
         data[key] = val
 
     escolha = input(
-        "\nQual estilo deseja gerar? [1=Clássico, 2=Clínico, 3=Minimalista, 4=Moderno/Conversão] (Padrão: 1): "
-    ).strip().upper() or "1"
+        "\nQual estilo deseja gerar? [1=Clássico, 2=Clínico, 3=Minimalista, 4=Moderno/Conversão, 5=Craft, 6=Autoral/Precisão] (Padrão: 6): "
+    ).strip().upper() or "6"
 
-    padrao_cor = DEFAULT_COLORS.get(escolha, "#1B365D")
+    padrao_cor = DEFAULT_COLORS.get(escolha, "#0F766E")
     cor_input = input(
         f"Cor Principal em HEX (ex: {padrao_cor}) [Enter para usar a cor padrão do estilo]: "
     ).strip()
     if cor_input:
         data["COR_PRIMARIA"] = cor_input
 
-    if escolha in ("1", "2", "3", "4"):
+    if escolha in ("1", "2", "3", "4", "5", "6"):
         site_dir = generate_page(data, escolha)
         print(f"\n[OK] Site gerado pronto para deploy em: {site_dir}")
         print(f"     - {site_dir / 'index.html'}")
@@ -258,7 +262,7 @@ def interactive_mode():
         print(f"     - {site_dir / 'script.js'}")
     elif escolha in ("T", "ALL", "TODOS"):
         outs = generate_all_styles(data)
-        print("\n[OK] 4 pastas geradas com sucesso:")
+        print("\n[OK] 6 pastas geradas com sucesso:")
         for p in outs:
             print(f" - {p} (index.html, style.css, script.js)")
     else:
@@ -290,7 +294,7 @@ def main():
     parser = argparse.ArgumentParser(description="Gerador Local de Landing Pages para Clínicas Odontológicas")
     parser.add_argument("--csv", type=str, help="Caminho de um arquivo CSV com os dados das clínicas")
     parser.add_argument("--json", type=str, help="Caminho de um arquivo JSON com os dados da clínica")
-    parser.add_argument("--template", type=str, default="1", help="1, 2, 3, 4 ou ALL")
+    parser.add_argument("--template", type=str, default="6", help="1, 2, 3, 4, 5, 6 ou ALL")
     parser.add_argument("--cor", type=str, default="", help="Cor principal em HEX (ex: #0F766E)")
     parser.add_argument("--saida", type=str, default=str(BASE_DIR / "gerados"), help="Pasta de saída")
     args = parser.parse_args()

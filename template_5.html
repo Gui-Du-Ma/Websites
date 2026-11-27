@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#0F172A">
+  <title>{{NOME}} — Odontologia em {{CIDADE}}</title>
+  <meta name="description" content="{{NOME}} em {{CIDADE}}. Atendimento odontológico completo, avaliações verificadas no Google e agendamento direto via WhatsApp.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    var __rawBrand = "{{COR_PRIMARIA}}";
+    var __brandColor = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(__rawBrand) ? __rawBrand : "#0F766E";
+    document.documentElement.style.setProperty("--brand", __brandColor);
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#F8FAFC',
+              100: '#F1F5F9',
+              500: __brandColor,
+              600: __brandColor,
+              700: __brandColor,
+              800: __brandColor,
+              900: __brandColor,
+              950: '#0B1220'
+            }
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --brand: #0F766E;
+      --brand-tint: color-mix(in srgb, var(--brand) 9%, transparent);
+      --brand-tint-strong: color-mix(in srgb, var(--brand) 16%, transparent);
+      --brand-border: color-mix(in srgb, var(--brand) 28%, transparent);
+      --brand-shadow: color-mix(in srgb, var(--brand) 24%, transparent);
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    html {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #FAFAFA;
+      color: #0F172A;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      text-wrap: balance;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Mobile-native input sizing: minimum 16px prevents iOS Safari zoom on focus */
+    input, textarea, select {
+      font-size: 16px;
+    }
+
+    /* Remove 300ms tap delay and prevent accidental text selection on controls */
+    button, a, [role="button"], .segmented-option {
+      touch-action: manipulation;
+    }
+
+    button, [role="button"], .segmented-control {
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    /* Tactile press feedback (Emil Kowalski: scale 0.97 on :active, 140ms ease-out) */
+    .pressable {
+      transition: transform 140ms var(--ease-out), background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 180ms var(--ease-out);
+    }
+
+    .pressable:active {
+      transform: scale(0.97);
+    }
+
+    .pressable-sm {
+      transition: transform 130ms var(--ease-out), background-color 150ms ease, color 150ms ease, opacity 150ms ease;
+    }
+
+    .pressable-sm:active {
+      transform: scale(0.95);
+    }
+
+    /* Refined hairline elevation */
+    .craft-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03), 0 8px 24px -10px rgba(15, 23, 42, 0.06);
+      transition: transform 220ms var(--ease-out), border-color 180ms ease, box-shadow 220ms var(--ease-out);
+    }
+
+    .craft-card-elevated {
+      background: #FFFFFF;
+      border: 1px solid rgba(15, 23, 42, 0.09);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 18px 40px -16px rgba(15, 23, 42, 0.12);
+    }
+
+    .brand-icon-badge {
+      background-color: var(--brand-tint);
+      color: var(--brand);
+    }
+
+    .brand-cta {
+      background-color: var(--brand);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08), 0 8px 20px -6px var(--brand-shadow);
+    }
+
+    /* Sticky header scroll polish */
+    .site-header {
+      padding-top: env(safe-area-inset-top, 0px);
+      transition: box-shadow 200ms var(--ease-out), background-color 200ms ease, border-color 200ms ease;
+    }
+
+    .site-header[data-scrolled="true"] {
+      background-color: rgba(255, 255, 255, 0.92);
+      border-color: rgba(15, 23, 42, 0.1);
+      box-shadow: 0 4px 20px -8px rgba(15, 23, 42, 0.08);
+    }
+
+    /* Gate ALL hover motion behind capability media query (zero sticky hover on touch) */
+    @media (hover: hover) and (pointer: fine) {
+      .craft-card-interactive:hover {
+        transform: translateY(-2px);
+        border-color: var(--brand-border);
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04), 0 16px 32px -12px rgba(15, 23, 42, 0.11);
+      }
+
+      .brand-cta:hover {
+        filter: brightness(0.94);
+        transform: translateY(-1px);
+      }
+
+      .brand-cta:active {
+        filter: brightness(0.9);
+        transform: scale(0.97);
+      }
+
+      .nav-link:hover {
+        color: var(--brand);
+      }
+
+      .arrow-nudge:hover .arrow-icon {
+        transform: translateX(3px);
+      }
+    }
+
+    .arrow-icon {
+      transition: transform 180ms var(--ease-out);
+    }
+
+    /* Hero Choreography — non-uniform shrinking gaps, one entrance per container, never blocks interaction */
+    @keyframes heroFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes heroRise {
+      from {
+        opacity: 0;
+        transform: translateY(var(--rise, 12px));
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroCardEnter {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .choreo-pill {
+      animation: heroFade 360ms var(--ease-out) 0ms both;
+    }
+
+    .choreo-lead {
+      --rise: 14px;
+      animation: heroRise 520ms var(--ease-out) 0ms both;
+    }
+
+    .choreo-sub {
+      --rise: 10px;
+      animation: heroRise 460ms var(--ease-out) 70ms both;
+    }
+
+    .choreo-cards {
+      --rise: 8px;
+      animation: heroRise 420ms var(--ease-out) 125ms both;
+    }
+
+    .choreo-form {
+      animation: heroCardEnter 480ms var(--ease-out) 165ms both;
+    }
+
+    /* Below-the-fold scroll reveal (GPU transform + opacity only, never scale(0)) */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 420ms var(--ease-out), transform 420ms var(--ease-out);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .reveal-item[data-visible="true"] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Signature Emil Kowalski clip-path Segmented Control (seamless color transition) */
+    .segmented-control {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background-color: #F1F5F9;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 12px;
+      padding: 4px;
+    }
+
+    .segmented-option {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 42px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #475569;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: transform 120ms var(--ease-out);
+    }
+
+    .segmented-option:active {
+      transform: scale(0.97);
+    }
+
+    .segmented-overlay {
+      position: absolute;
+      inset: 4px;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      pointer-events: none;
+      background-color: var(--brand);
+      border-radius: 9px;
+      box-shadow: 0 2px 8px -2px var(--brand-shadow);
+      clip-path: inset(0 50% 0 0 round 9px);
+      transition: clip-path 240ms var(--ease-out);
+    }
+
+    .segmented-control[data-selected="Tarde"] .segmented-overlay {
+      clip-path: inset(0 0 0 50% round 9px);
+    }
+
+    .segmented-overlay-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 42px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    /* Blur-crossfade button state transition (Emil Kowalski blur masking) */
+    .btn-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: filter 180ms ease, opacity 180ms ease, transform 180ms var(--ease-out);
+    }
+
+    .btn-label[data-transitioning="true"] {
+      filter: blur(2px);
+      opacity: 0.45;
+      transform: scale(0.98);
+    }
+
+    /* Origin-aware form highlight pulse when selecting a treatment */
+    .field-focus-ring {
+      transition: border-color 160ms ease, box-shadow 180ms var(--ease-out), background-color 160ms ease;
+    }
+
+    .field-focus-ring:focus {
+      outline: none;
+      border-color: var(--brand);
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px var(--brand-tint-strong);
+    }
+
+    .field-highlight {
+      border-color: var(--brand) !important;
+      box-shadow: 0 0 0 4px var(--brand-tint-strong) !important;
+      background-color: #FFFFFF !important;
+    }
+
+    /* Origin-aware Tooltips with instant subsequent hover (data-instant) */
+    .tip-trigger {
+      position: relative;
+    }
+
+    .tip-bubble {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) scale(0.96);
+      transform-origin: bottom center;
+      opacity: 0;
+      pointer-events: none;
+      white-space: nowrap;
+      background: #0F172A;
+      color: #F8FAFC;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 5px 9px;
+      border-radius: 7px;
+      box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.28);
+      transition: opacity 140ms var(--ease-out), transform 140ms var(--ease-out);
+      z-index: 40;
+    }
+
+    .tip-bubble[data-open="true"] {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
+    .tip-bubble[data-instant="true"] {
+      transition-duration: 0ms;
+    }
+
+    /* Sonner-inspired Toast (interruptible CSS transition, translateY(100%), @starting-style) */
+    .toast-region {
+      position: fixed;
+      right: 20px;
+      bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+      max-width: calc(100vw - 32px);
+    }
+
+    @media (max-width: 767px) {
+      .toast-region {
+        right: 16px;
+        left: 16px;
+        bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+        align-items: center;
+      }
+    }
+
+    .craft-toast {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #0F172A;
+      color: #F8FAFC;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px 15px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.35);
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      transition: transform 380ms var(--ease-drawer), opacity 260ms ease;
+      cursor: pointer;
+    }
+
+    .craft-toast[data-state="entering"],
+    .craft-toast[data-state="leaving"] {
+      opacity: 0;
+      transform: translateY(100%) scale(0.96);
+    }
+
+    @starting-style {
+      .craft-toast {
+        opacity: 0;
+        transform: translateY(100%) scale(0.96);
+      }
+    }
+
+    /* Mobile-native sticky bottom bar with safe-area padding */
+    .mobile-bottom-bar {
+      padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* Reduced motion: collapse choreography and remove movement, preserve opacity cues */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .choreo-pill,
+      .choreo-lead,
+      .choreo-sub,
+      .choreo-cards,
+      .choreo-form {
+        animation: heroFade 200ms ease 0ms both;
+      }
+      .reveal-item {
+        transform: none;
+        transition: opacity 200ms ease;
+        transition-delay: 0ms;
+      }
+      .pressable:active,
+      .pressable-sm:active,
+      .segmented-option:active {
+        transform: none;
+      }
+      .segmented-overlay {
+        transition-duration: 0ms;
+      }
+      .craft-toast {
+        transform: none !important;
+        transition: opacity 200ms ease;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-700 selection:text-white pb-20 md:pb-0">
+
+  <!-- Barra Superior de Localização e Horário -->
+  <div class="bg-brand-950 text-slate-300 text-xs border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5">
+      <div class="flex items-center gap-2 min-w-0">
+        <svg class="w-3.5 h-3.5 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <span class="truncate">
+          <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer text-slate-200" title="Abrir no Google Maps">{{ENDERECO}}</a>
+          <span class="text-slate-500 mx-1.5">&mdash;</span>
+          <strong class="text-white font-semibold">{{CIDADE}}</strong>
+        </span>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <span class="flex items-center gap-1.5 text-slate-300">
+          <svg class="w-3.5 h-3.5 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          {{HORARIO}}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegação Principal Translúcida -->
+  <header id="site-header" class="site-header sticky top-0 z-30 bg-white/85 backdrop-blur-md border-b border-slate-200/75">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-4 py-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-10 h-10 rounded-xl brand-cta text-white flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <div class="min-w-0">
+          <span class="block font-display text-lg sm:text-xl font-semibold text-slate-900 leading-tight truncate">{{NOME}}</span>
+          <span class="block text-xs text-slate-500 font-medium truncate">Odontologia em {{CIDADE}}</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <a href="#especialidades" class="nav-link transition-colors duration-150">Tratamentos</a>
+        <a href="#avaliacoes" class="nav-link transition-colors duration-150 tabular-nums">Avaliações ({{NOTA}})</a>
+        <a href="#localizacao" class="nav-link transition-colors duration-150">Localização</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="#agendamento" class="pressable brand-cta arrow-nudge inline-flex items-center gap-2 text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl">
+          <span>Agendar Consulta</span>
+          <svg class="w-4 h-4 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section com Coreografia Intencional e Formulário Tátil -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-white via-[#FAFAFA] to-[#FAFAFA] pt-10 pb-16 lg:py-20 border-b border-slate-200/75">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+        <!-- Coluna Hero Texto -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="choreo-pill inline-flex items-center gap-2.5 bg-white border border-slate-200/90 px-3.5 py-1.5 rounded-full shadow-xs">
+            <span class="flex items-center text-amber-500" aria-hidden="true">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </span>
+            <span class="text-xs font-semibold text-slate-800 tabular-nums">Nota {{NOTA}} de 5.0 no Google</span>
+            <span class="text-slate-300">|</span>
+            <span class="text-xs text-slate-500 font-medium">{{CIDADE}}</span>
+          </div>
+
+          <h1 class="choreo-lead font-display text-3xl sm:text-5xl font-semibold text-slate-900 tracking-[-0.025em] leading-[1.12]">
+            Odontologia precisa, transparente e com hora marcada em <span class="text-brand-700">{{CIDADE}}</span>.
+          </h1>
+
+          <p class="choreo-sub text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+            Na <strong class="text-slate-900 font-semibold">{{NOME}}</strong>, você agenda sua avaliação direto com a recepção, com diagnóstico claro e cuidado em cada detalhe desde a primeira consulta.
+          </p>
+
+          <!-- Cards de Informações Reais com Ações Rápidas e Tooltips Instantâneos -->
+          <div class="choreo-cards grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+            <div class="craft-card rounded-2xl p-4 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl brand-icon-badge flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Endereço</span>
+                  <div class="flex items-center gap-1" data-tooltip-group>
+                    <button type="button" data-copy-text="{{ENDERECO}}" data-copy-label="Endereço copiado" class="tip-trigger pressable-sm w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200/80 text-slate-600 flex items-center justify-center" aria-label="Copiar endereço">
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                      </svg>
+                      <span class="tip-bubble">Copiar endereço</span>
+                    </button>
+                    <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="tip-trigger pressable-sm w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200/80 text-slate-600 flex items-center justify-center" aria-label="Abrir no Google Maps">
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                      <span class="tip-bubble">Abrir no Maps</span>
+                    </a>
+                  </div>
+                </div>
+                <p class="text-sm font-semibold text-slate-800 mt-0.5 leading-snug">
+                  <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a>
+                </p>
+                <p class="text-xs text-slate-500 mt-0.5">{{CIDADE}}</p>
+              </div>
+            </div>
+
+            <div class="craft-card rounded-2xl p-4 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl brand-icon-badge flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Atendimento</span>
+                  <div class="flex items-center gap-1" data-tooltip-group>
+                    <button type="button" data-copy-text="{{WHATSAPP}}" data-copy-label="WhatsApp copiado" class="tip-trigger pressable-sm w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200/80 text-slate-600 flex items-center justify-center" aria-label="Copiar número do WhatsApp">
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                      </svg>
+                      <span class="tip-bubble">Copiar WhatsApp</span>
+                    </button>
+                  </div>
+                </div>
+                <p class="text-sm font-semibold text-slate-800 mt-0.5 leading-snug">{{HORARIO}}</p>
+                <p class="text-xs text-brand-700 font-semibold mt-0.5 tabular-nums">
+                  <a href="#" data-wa-direct class="hover:underline">WhatsApp: {{WHATSAPP}}</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Hero Formulário Direto para WhatsApp -->
+        <div id="agendamento" class="lg:col-span-5 choreo-form">
+          <div class="craft-card-elevated rounded-3xl p-6 sm:p-8">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-brand-700 block">Agendamento Direto</span>
+                <h2 class="font-display text-2xl font-semibold text-slate-900 mt-0.5 tracking-tight">Solicitar Consulta</h2>
+              </div>
+              <div class="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+              </div>
+            </div>
+
+            <form id="form-agendamento" class="space-y-4">
+              <div>
+                <label for="paciente-nome" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Seu Nome Completo
+                </label>
+                <input
+                  type="text"
+                  id="paciente-nome"
+                  name="nome"
+                  required
+                  autocomplete="name"
+                  enterkeyhint="next"
+                  placeholder="Digite seu nome"
+                  class="field-focus-ring w-full bg-slate-50 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400"
+                >
+              </div>
+
+              <div>
+                <label for="paciente-procedimento" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Procedimento Desejado
+                </label>
+                <select
+                  id="paciente-procedimento"
+                  name="procedimento"
+                  required
+                  class="field-focus-ring w-full bg-slate-50 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900"
+                >
+                  <option value="Limpeza/Avaliação">Limpeza / Avaliação</option>
+                  <option value="Clareamento">Clareamento</option>
+                  <option value="Implante">Implante</option>
+                  <option value="Ortodontia">Ortodontia</option>
+                  <option value="Prótese">Prótese</option>
+                  <option value="Urgência">Urgência</option>
+                </select>
+              </div>
+
+              <!-- Segmented Control com clip-path (transição contínua de cor e fundo) -->
+              <div>
+                <span id="periodo-label" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Melhor Período para Atendimento
+                </span>
+                <input type="hidden" id="paciente-periodo" name="periodo" value="Manhã">
+                <div
+                  id="periodo-segmented"
+                  class="segmented-control"
+                  role="radiogroup"
+                  aria-labelledby="periodo-label"
+                  data-selected="Manhã"
+                >
+                  <button type="button" role="radio" aria-checked="true" data-periodo-opt="Manhã" class="segmented-option">
+                    <span>Manhã</span>
+                  </button>
+                  <button type="button" role="radio" aria-checked="false" data-periodo-opt="Tarde" class="segmented-option">
+                    <span>Tarde</span>
+                  </button>
+                  <div class="segmented-overlay" aria-hidden="true">
+                    <span class="segmented-overlay-label">Manhã</span>
+                    <span class="segmented-overlay-label">Tarde</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  id="btn-submit-wa"
+                  class="pressable brand-cta arrow-nudge w-full text-white font-semibold text-sm py-3.5 px-6 rounded-xl flex items-center justify-center"
+                >
+                  <span id="btn-submit-label" class="btn-label" data-transitioning="false">
+                    <span>Enviar Solicitação via WhatsApp</span>
+                    <svg class="w-4 h-4 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+
+              <p class="text-center text-xs text-slate-500 pt-1 tabular-nums">
+                Resposta direta pelo número <strong class="text-slate-700 font-semibold">{{WHATSAPP}}</strong>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Tratamentos e Especialidades -->
+  <section id="especialidades" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl reveal-item" style="--reveal-delay: 0ms;">
+      <span class="text-xs font-bold uppercase tracking-widest text-brand-700 block">Especialidades Odontológicas</span>
+      <h2 class="font-display text-2xl sm:text-4xl font-semibold text-slate-900 mt-2 tracking-tight">
+        Procedimentos realizados no consultório
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+        Clique em qualquer tratamento para pré-selecioná-lo no formulário de agendamento da {{NOME}}.
+      </p>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Card 1 -->
+      <article class="reveal-item craft-card craft-card-interactive rounded-2xl p-6 flex flex-col justify-between" style="--reveal-delay: 0ms;">
+        <div>
+          <div class="w-11 h-11 rounded-xl brand-icon-badge flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900">Limpeza e Avaliação Clínica</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Exame clínico minucioso, profilaxia profissional, remoção de tártaro e planejamento preventivo para dentes e gengivas saudáveis.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Limpeza/Avaliação" class="pressable-sm arrow-nudge mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 self-start py-1">
+          <span>Agendar avaliação</span>
+          <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+        </a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="reveal-item craft-card craft-card-interactive rounded-2xl p-6 flex flex-col justify-between" style="--reveal-delay: 45ms;">
+        <div>
+          <div class="w-11 h-11 rounded-xl brand-icon-badge flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900">Clareamento Dental</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Protocolos seguros sob supervisão clínica para recuperação da luminosidade natural do sorriso com controle de sensibilidade.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Clareamento" class="pressable-sm arrow-nudge mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 self-start py-1">
+          <span>Solicitar clareamento</span>
+          <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+        </a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="reveal-item craft-card craft-card-interactive rounded-2xl p-6 flex flex-col justify-between" style="--reveal-delay: 85ms;">
+        <div>
+          <div class="w-11 h-11 rounded-xl brand-icon-badge flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900">Implantes Dentários</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Reabilitação oral com implantes unitários ou múltiplos para reposição fixa de dentes ausentes, devolvendo segurança ao mastigar.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Implante" class="pressable-sm arrow-nudge mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 self-start py-1">
+          <span>Avaliação para implante</span>
+          <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+        </a>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="reveal-item craft-card craft-card-interactive rounded-2xl p-6 flex flex-col justify-between" style="--reveal-delay: 115ms;">
+        <div>
+          <div class="w-11 h-11 rounded-xl brand-icon-badge flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/>
+            </svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900">Ortodontia</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Planejamento e acompanhamento ortodôntico para alinhamento dentário, correção da mordida e melhora funcional da oclusão.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Ortodontia" class="pressable-sm arrow-nudge mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 self-start py-1">
+          <span>Agendar avaliação ortodôntica</span>
+          <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+        </a>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="reveal-item craft-card craft-card-interactive rounded-2xl p-6 flex flex-col justify-between" style="--reveal-delay: 140ms;">
+        <div>
+          <div class="w-11 h-11 rounded-xl brand-icon-badge flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+            </svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900">Prótese Odontológica</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Confecção e ajuste de coroas, próteses fixas e removíveis sob medida para restabelecer estética e função mastigatória.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Prótese" class="pressable-sm arrow-nudge mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 self-start py-1">
+          <span>Consultar sobre prótese</span>
+          <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+        </a>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="reveal-item craft-card craft-card-interactive rounded-2xl p-6 flex flex-col justify-between" style="--reveal-delay: 160ms;">
+        <div>
+          <div class="w-11 h-11 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900">Atendimento de Urgência</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Cuidado prioritário para dor de dente aguda, fraturas dentárias, inchaços ou reparo imediato em restaurações e próteses.
+          </p>
+        </div>
+        <a href="#agendamento" data-select-proc="Urgência" class="pressable-sm arrow-nudge mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-rose-600 self-start py-1">
+          <span>Solicitar urgência</span>
+          <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Avaliações Verificadas no Google -->
+  <section id="avaliacoes" class="bg-white border-y border-slate-200/75 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal-item" style="--reveal-delay: 0ms;">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-700 block">Depoimentos Reais</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-semibold text-slate-900 mt-2 tracking-tight">
+            O que os pacientes dizem no Google
+          </h2>
+        </div>
+
+        <div class="inline-flex items-center gap-4 bg-[#FAFAFA] border border-slate-200/90 rounded-2xl px-5 py-3.5 self-start md:self-auto">
+          <div class="text-3xl font-bold text-slate-900 tabular-nums">{{NOTA}}</div>
+          <div>
+            <div class="flex items-center text-amber-500" aria-label="5 estrelas">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="text-xs text-slate-500 block mt-0.5">Média no Google Maps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <article class="reveal-item bg-[#FAFAFA] border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between" style="--reveal-delay: 0ms;">
+          <div>
+            <span class="inline-block text-[11px] font-semibold text-slate-600 bg-white border border-slate-200/90 px-2.5 py-0.5 rounded-full mb-3.5">Avaliação Verificada</span>
+            <p class="text-sm sm:text-[15px] text-slate-700 leading-relaxed">
+              "{{AVALIACAO_1}}"
+            </p>
+          </div>
+          <footer class="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-xs text-slate-500">
+            <span>Google Maps &mdash; {{CIDADE}}</span>
+            <span class="font-semibold text-brand-700 tabular-nums">5.0 / 5.0</span>
+          </footer>
+        </article>
+
+        <article class="reveal-item bg-[#FAFAFA] border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between" style="--reveal-delay: 55ms;">
+          <div>
+            <span class="inline-block text-[11px] font-semibold text-slate-600 bg-white border border-slate-200/90 px-2.5 py-0.5 rounded-full mb-3.5">Avaliação Verificada</span>
+            <p class="text-sm sm:text-[15px] text-slate-700 leading-relaxed">
+              "{{AVALIACAO_2}}"
+            </p>
+          </div>
+          <footer class="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-xs text-slate-500">
+            <span>Google Maps &mdash; {{CIDADE}}</span>
+            <span class="font-semibold text-brand-700 tabular-nums">5.0 / 5.0</span>
+          </footer>
+        </article>
+
+        <article class="reveal-item bg-[#FAFAFA] border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between" style="--reveal-delay: 95ms;">
+          <div>
+            <span class="inline-block text-[11px] font-semibold text-slate-600 bg-white border border-slate-200/90 px-2.5 py-0.5 rounded-full mb-3.5">Avaliação Verificada</span>
+            <p class="text-sm sm:text-[15px] text-slate-700 leading-relaxed">
+              "{{AVALIACAO_3}}"
+            </p>
+          </div>
+          <footer class="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-xs text-slate-500">
+            <span>Google Maps &mdash; {{CIDADE}}</span>
+            <span class="font-semibold text-brand-700 tabular-nums">5.0 / 5.0</span>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Localização e Contato Direto -->
+  <section id="localizacao" class="py-16 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="reveal-item bg-brand-950 text-white rounded-3xl p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-white/10 shadow-xl shadow-slate-900/15" style="--reveal-delay: 0ms;">
+      <div class="lg:col-span-8 space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-500 block">Canais de Atendimento</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-semibold tracking-tight">
+          Agende sua consulta na {{NOME}}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 text-sm text-slate-300">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-brand-500 font-semibold block mb-1">Endereço</span>
+            <p><a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer text-slate-100" title="Abrir no Google Maps">{{ENDERECO}}</a></p>
+            <p class="text-white font-medium mt-0.5">{{CIDADE}}</p>
+          </div>
+          <div>
+            <span class="text-xs uppercase tracking-wider text-brand-500 font-semibold block mb-1">Horário</span>
+            <p class="text-slate-200">{{HORARIO}}</p>
+          </div>
+          <div>
+            <span class="text-xs uppercase tracking-wider text-brand-500 font-semibold block mb-1">WhatsApp</span>
+            <p class="text-white font-semibold tabular-nums"><a href="#" data-wa-direct class="hover:underline">{{WHATSAPP}}</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
+        <a href="#agendamento" class="pressable brand-cta w-full text-white text-sm font-semibold py-3.5 px-6 rounded-xl text-center">
+          Agendar pelo Formulário
+        </a>
+        <a href="#" data-wa-direct class="pressable w-full bg-white/10 hover:bg-white/15 text-white border border-white/15 text-sm font-semibold py-3.5 px-6 rounded-xl text-center">
+          Chamar no WhatsApp Agora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-white border-t border-slate-200/80 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div class="text-center sm:text-left">
+        <strong class="text-slate-800 font-semibold">{{NOME}}</strong> &mdash;
+        <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a>
+        &mdash; {{CIDADE}}
+      </div>
+      <div class="tabular-nums text-center sm:text-right">
+        Horário: {{HORARIO}} | WhatsApp: <a href="#" data-wa-direct class="text-brand-700 font-semibold hover:underline">{{WHATSAPP}}</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Barra Mobile-Native Fixa no Rodapé (Safe Area Aware) -->
+  <div class="mobile-bottom-bar fixed bottom-0 inset-x-0 z-40 md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-4 pt-2.5 shadow-[0_-8px_24px_-12px_rgba(15,23,42,0.12)]">
+    <div class="grid grid-cols-2 gap-2.5 max-w-md mx-auto">
+      <a href="#agendamento" class="pressable brand-cta text-white text-xs font-semibold py-3 px-4 rounded-xl text-center">
+        Agendar Horário
+      </a>
+      <a href="#" data-wa-direct class="pressable bg-slate-100 text-slate-900 border border-slate-200/90 text-xs font-semibold py-3 px-4 rounded-xl text-center">
+        WhatsApp Direto
+      </a>
+    </div>
+  </div>
+
+  <!-- Região de Toasts (Sonner-inspired) -->
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Script de Interações Táteis, Tooltips, Toast e Agendamento Inteligente -->
+  <script>
+    (function () {
+      var rawPhone = "{{WHATSAPP}}";
+      var cleanPhone = rawPhone.replace(/\D/g, "");
+      if (cleanPhone.length >= 10 && cleanPhone.length <= 11 && !cleanPhone.startsWith("55")) {
+        cleanPhone = "55" + cleanPhone;
+      }
+
+      // 1. Links diretos do WhatsApp
+      document.querySelectorAll("[data-wa-direct]").forEach(function (link) {
+        if (cleanPhone) {
+          var defaultMsg = encodeURIComponent("Olá! Gostaria de informações sobre agendamento de consulta na {{NOME}}.");
+          link.setAttribute("href", "https://wa.me/" + cleanPhone + "?text=" + defaultMsg);
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        }
+      });
+
+      // 2. Sticky header scroll state
+      var header = document.getElementById("site-header");
+      if (header) {
+        var onScroll = function () {
+          header.setAttribute("data-scrolled", window.scrollY > 12 ? "true" : "false");
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      }
+
+      // 3. Sonner-inspired Toast (interruptible CSS transition + pause on hover/tab hidden)
+      var toastRegion = document.getElementById("toast-region");
+      function showToast(message) {
+        if (!toastRegion) return;
+        // Limita a 2 toasts visíveis para não poluir
+        while (toastRegion.children.length >= 2) {
+          toastRegion.removeChild(toastRegion.firstChild);
+        }
+
+        var el = document.createElement("div");
+        el.className = "craft-toast";
+        el.setAttribute("data-state", "entering");
+        el.setAttribute("role", "status");
+        el.innerHTML =
+          '<svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">' +
+          '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' +
+          '<span></span>';
+        el.querySelector("span").textContent = message;
+        toastRegion.appendChild(el);
+
+        requestAnimationFrame(function () {
+          el.setAttribute("data-state", "open");
+        });
+
+        var remaining = 2600;
+        var startedAt = Date.now();
+        var timer = null;
+
+        function dismiss() {
+          clearTimeout(timer);
+          el.setAttribute("data-state", "leaving");
+          setTimeout(function () {
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }, 320);
+        }
+
+        function startTimer() {
+          startedAt = Date.now();
+          timer = setTimeout(dismiss, remaining);
+        }
+
+        function pauseTimer() {
+          clearTimeout(timer);
+          remaining = Math.max(400, remaining - (Date.now() - startedAt));
+        }
+
+        el.addEventListener("click", dismiss);
+        el.addEventListener("pointerenter", pauseTimer);
+        el.addEventListener("pointerleave", startTimer);
+        document.addEventListener("visibilitychange", function onVis() {
+          if (!el.parentNode) {
+            document.removeEventListener("visibilitychange", onVis);
+            return;
+          }
+          if (document.hidden) pauseTimer();
+          else startTimer();
+        });
+
+        startTimer();
+      }
+
+      // 4. Botões de cópia rápida
+      document.querySelectorAll("[data-copy-text]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var text = btn.getAttribute("data-copy-text") || "";
+          var label = btn.getAttribute("data-copy-label") || "Copiado";
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+              showToast(label);
+            }).catch(function () {
+              showToast(label);
+            });
+          } else {
+            showToast(label);
+          }
+        });
+      });
+
+      // 5. Tooltips origin-aware: delay inicial na primeira abertura, instantâneos nos hovers subsequentes
+      var canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+      if (canHover) {
+        var groupActive = false;
+        var closeGroupTimer = null;
+
+        document.querySelectorAll(".tip-trigger").forEach(function (trigger) {
+          var bubble = trigger.querySelector(".tip-bubble");
+          if (!bubble) return;
+          var openTimer = null;
+
+          trigger.addEventListener("pointerenter", function () {
+            clearTimeout(closeGroupTimer);
+            clearTimeout(openTimer);
+            if (groupActive) {
+              bubble.setAttribute("data-instant", "true");
+              bubble.setAttribute("data-open", "true");
+            } else {
+              bubble.removeAttribute("data-instant");
+              openTimer = setTimeout(function () {
+                groupActive = true;
+                bubble.setAttribute("data-open", "true");
+              }, 320);
+            }
+          });
+
+          trigger.addEventListener("pointerleave", function () {
+            clearTimeout(openTimer);
+            bubble.setAttribute("data-open", "false");
+            closeGroupTimer = setTimeout(function () {
+              groupActive = false;
+            }, 450);
+          });
+        });
+      }
+
+      // 6. Segmented Control com clip-path para Período (Manhã / Tarde)
+      var segmented = document.getElementById("periodo-segmented");
+      var periodoInput = document.getElementById("paciente-periodo");
+      if (segmented && periodoInput) {
+        var options = segmented.querySelectorAll("[data-periodo-opt]");
+        options.forEach(function (opt) {
+          opt.addEventListener("click", function () {
+            var val = opt.getAttribute("data-periodo-opt");
+            periodoInput.value = val;
+            segmented.setAttribute("data-selected", val);
+            options.forEach(function (o) {
+              o.setAttribute("aria-checked", o === opt ? "true" : "false");
+            });
+          });
+        });
+      }
+
+      // 7. Seleção rápida de procedimento nos cards + destaque sutil + toast
+      var procSelect = document.getElementById("paciente-procedimento");
+      var nomeInput = document.getElementById("paciente-nome");
+      document.querySelectorAll("[data-select-proc]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var proc = btn.getAttribute("data-select-proc");
+          if (procSelect && proc) {
+            procSelect.value = proc;
+            procSelect.classList.add("field-highlight");
+            setTimeout(function () {
+              procSelect.classList.remove("field-highlight");
+            }, 900);
+            showToast("Procedimento selecionado: " + proc);
+          }
+          if (nomeInput) {
+            setTimeout(function () { nomeInput.focus(); }, 320);
+          }
+        });
+      });
+
+      // 8. Scroll Reveal (IntersectionObserver, once: true)
+      var revealEls = document.querySelectorAll(".reveal-item");
+      if ("IntersectionObserver" in window && revealEls.length) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.setAttribute("data-visible", "true");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+        revealEls.forEach(function (el) { observer.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.setAttribute("data-visible", "true"); });
+      }
+
+      // 9. Envio do Formulário com transição blur-crossfade no botão
+      var form = document.getElementById("form-agendamento");
+      var submitLabel = document.getElementById("btn-submit-label");
+      var originalLabelHTML = submitLabel ? submitLabel.innerHTML : "";
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var nome = document.getElementById("paciente-nome").value.trim();
+          var procedimento = document.getElementById("paciente-procedimento").value;
+          var periodo = document.getElementById("paciente-periodo").value;
+
+          var mensagem = "Olá! Gostaria de solicitar o agendamento de uma consulta na {{NOME}}.\n\n" +
+            "*Nome:* " + nome + "\n" +
+            "*Procedimento:* " + procedimento + "\n" +
+            "*Período de preferência:* " + periodo;
+
+          var targetPhone = cleanPhone || "5500000000000";
+          var url = "https://wa.me/" + targetPhone + "?text=" + encodeURIComponent(mensagem);
+
+          if (submitLabel) {
+            submitLabel.setAttribute("data-transitioning", "true");
+            setTimeout(function () {
+              submitLabel.innerHTML = '<span>Abrindo WhatsApp...</span>';
+              submitLabel.setAttribute("data-transitioning", "false");
+            }, 140);
+
+            setTimeout(function () {
+              submitLabel.setAttribute("data-transitioning", "true");
+              setTimeout(function () {
+                submitLabel.innerHTML = originalLabelHTML;
+                submitLabel.setAttribute("data-transitioning", "false");
+              }, 140);
+            }, 1800);
+          }
+
+          window.open(url, "_blank", "noopener,noreferrer");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

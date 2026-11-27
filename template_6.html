@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#0B1220">
+  <title>{{NOME}} — Odontologia em {{CIDADE}}</title>
+  <meta name="description" content="{{NOME}} em {{CIDADE}}. Atendimento odontológico preciso, avaliações verificadas no Google e agendamento direto via WhatsApp.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    var __rawBrand = "{{COR_PRIMARIA}}";
+    var __brandColor = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(__rawBrand) ? __rawBrand : "#0F766E";
+    document.documentElement.style.setProperty("--brand", __brandColor);
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: __brandColor,
+              50: '#F0FDFA',
+              100: '#CCFBF1',
+              500: __brandColor,
+              600: __brandColor,
+              700: __brandColor,
+              800: __brandColor,
+              900: __brandColor,
+              950: '#0B1220'
+            },
+            canvas: '#F7F7F5',
+            ink: '#0F172A'
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --brand: #0F766E;
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --border-hairline: rgba(15, 23, 42, 0.10);
+      --border-strong: rgba(15, 23, 42, 0.18);
+    }
+
+    html {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #F7F7F5;
+      color: #0F172A;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      text-wrap: balance;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Previne auto-zoom no iOS Safari ao focar inputs */
+    input, textarea, select {
+      font-size: 16px;
+    }
+
+    /* Elimina tap delay de 300ms e seleção acidental de texto em controles */
+    button, a, [role="button"], [role="radio"], [data-select-proc] {
+      touch-action: manipulation;
+    }
+
+    button, [role="button"], [role="radio"] {
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    /* Superfícies precisas com borda de 1px (Fim do AI Slop de sombras difusas) */
+    .surface-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+      transition: transform 160ms var(--ease-out), border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+    }
+
+    .surface-form {
+      background-color: #FFFFFF;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03), 0 12px 32px -12px rgba(15, 23, 42, 0.09);
+    }
+
+    /* Cores dinâmicas com fallback sólido garantido */
+    .text-brand-dynamic {
+      color: #0F766E;
+      color: var(--brand, #0F766E);
+    }
+
+    .bg-brand-dynamic {
+      background-color: #0F766E;
+      background-color: var(--brand, #0F766E);
+    }
+
+    .badge-brand-subtle {
+      background-color: #F0FDFA;
+      background-color: color-mix(in srgb, var(--brand, #0F766E) 10%, #FFFFFF);
+      color: #0F766E;
+      color: var(--brand, #0F766E);
+      border: 1px solid rgba(15, 118, 110, 0.18);
+      border-color: color-mix(in srgb, var(--brand, #0F766E) 22%, transparent);
+    }
+
+    /* CTA Principal Dominante */
+    .btn-primary-cta {
+      background-color: #0F766E;
+      background-color: var(--brand, #0F766E);
+      color: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 4px 12px -2px rgba(15, 23, 42, 0.16);
+      transition: transform 150ms var(--ease-out), filter 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
+    }
+
+    .btn-primary-cta:active {
+      transform: scale(0.98);
+      filter: brightness(0.93);
+    }
+
+    /* Micro-interações táteis (Emil Kowalski: 150ms-180ms ease-out, scale(0.98)) */
+    .tactile-press {
+      transition: transform 150ms var(--ease-out), background-color 150ms var(--ease-out), border-color 150ms var(--ease-out), color 150ms var(--ease-out);
+    }
+
+    .tactile-press:active {
+      transform: scale(0.98);
+    }
+
+    .proc-card {
+      cursor: pointer;
+    }
+
+    .proc-card:active {
+      transform: scale(0.98);
+    }
+
+    /* Hover restrito a dispositivos com ponteiro fino (evita sticky hover no mobile) */
+    @media (hover: hover) and (pointer: fine) {
+      .btn-primary-cta:hover {
+        filter: brightness(0.94);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 6px 18px -4px rgba(15, 23, 42, 0.22);
+      }
+
+      .proc-card:hover {
+        border-color: var(--border-strong);
+        box-shadow: 0 4px 16px -6px rgba(15, 23, 42, 0.08);
+      }
+
+      .proc-card:hover .proc-arrow {
+        transform: translateX(3px);
+      }
+
+      .action-pill:hover {
+        background-color: #E2E8F0;
+        color: #0F172A;
+      }
+
+      .nav-item:hover {
+        color: #0F172A;
+      }
+    }
+
+    .proc-arrow {
+      transition: transform 160ms var(--ease-out);
+    }
+
+    /* Segmented Control de Alto Contraste (Manhã / Tarde) */
+    .period-segmented {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      background-color: #F1F5F9;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 10px;
+      padding: 4px;
+    }
+
+    .period-btn {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 40px;
+      border-radius: 7px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #475569;
+      background-color: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 140ms var(--ease-out), background-color 150ms var(--ease-out), color 150ms var(--ease-out), border-color 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
+    }
+
+    .period-btn:active {
+      transform: scale(0.98);
+    }
+
+    .period-btn[aria-checked="true"] {
+      background-color: #0F766E;
+      background-color: var(--brand, #0F766E);
+      color: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 3px rgba(15, 23, 42, 0.14);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .period-btn[aria-checked="false"]:hover {
+        color: #0F172A;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    /* Inputs e estado de confirmação ao pré-selecionar procedimento */
+    .form-input {
+      background-color: #F8FAFC;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      transition: border-color 150ms var(--ease-out), background-color 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
+    }
+
+    .form-input:focus {
+      outline: none;
+      background-color: #FFFFFF;
+      border-color: #0F766E;
+      border-color: var(--brand, #0F766E);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand, #0F766E) 18%, transparent);
+    }
+
+    .form-input-highlighted {
+      background-color: #FFFFFF !important;
+      border-color: #0F766E !important;
+      border-color: var(--brand, #0F766E) !important;
+      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.20) !important;
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand, #0F766E) 22%, transparent) !important;
+    }
+
+    /* Badge de confirmação inline no select */
+    .confirm-pill {
+      opacity: 0;
+      transform: translateY(2px);
+      transition: opacity 150ms var(--ease-out), transform 150ms var(--ease-out);
+      pointer-events: none;
+    }
+
+    .confirm-pill[data-show="true"] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Toast discreto e rápido */
+    .toast-stack {
+      position: fixed;
+      right: 20px;
+      bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+      max-width: calc(100vw - 32px);
+    }
+
+    @media (max-width: 767px) {
+      .toast-stack {
+        right: 16px;
+        left: 16px;
+        bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+        align-items: center;
+      }
+    }
+
+    .toast-item {
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #0F172A;
+      color: #F8FAFC;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 10px 24px -6px rgba(15, 23, 42, 0.32);
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 180ms var(--ease-out), opacity 160ms var(--ease-out);
+      cursor: pointer;
+    }
+
+    .toast-item[data-hidden="true"] {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .mobile-bar {
+      padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-slate-900 selection:text-white pb-20 md:pb-0">
+
+  <!-- Barra Superior Institucional (Resiliente a textos longos) -->
+  <div class="bg-[#0B1220] text-slate-300 text-xs border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5">
+      <div class="flex items-start sm:items-center gap-2 min-w-0">
+        <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5 sm:mt-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <div class="min-w-0 break-words leading-snug">
+          <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer text-slate-200" title="Abrir no Google Maps">{{ENDERECO}}</a>
+          <span class="text-slate-600 mx-1.5" aria-hidden="true">&bull;</span>
+          <strong class="text-white font-semibold">{{CIDADE}}</strong>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0 text-slate-300 pl-5 sm:pl-0">
+        <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span class="break-words">{{HORARIO}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cabeçalho Principal (Protegido contra quebra em nomes longos) -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-black/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[68px] py-2.5 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 min-w-0 flex-1">
+        <div class="w-9 h-9 rounded-lg bg-brand-dynamic text-white flex items-center justify-center shrink-0 shadow-xs">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+          </svg>
+        </div>
+        <div class="min-w-0 flex-1">
+          <span class="block font-display text-base sm:text-lg font-semibold text-slate-900 leading-snug line-clamp-1 break-words" title="{{NOME}}">{{NOME}}</span>
+          <span class="block text-xs text-slate-500 font-medium truncate">Odontologia &bull; {{CIDADE}}</span>
+        </div>
+      </div>
+
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600 shrink-0">
+        <a href="#especialidades" class="nav-item transition-colors duration-150">Procedimentos</a>
+        <a href="#avaliacoes" class="nav-item transition-colors duration-150 tabular-nums">Avaliações ({{NOTA}})</a>
+        <a href="#localizacao" class="nav-item transition-colors duration-150">Localização</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="#agendamento" class="btn-primary-cta inline-flex items-center gap-2 text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-lg whitespace-nowrap">
+          <span>Agendar Consulta</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-white border-b border-black/10 py-10 sm:py-14 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+        <!-- Coluna Esquerda: Proposta Clínica + Blocos de Metadados Estruturados -->
+        <div class="lg:col-span-7 min-w-0 space-y-6">
+          <div class="inline-flex flex-wrap items-center gap-2 bg-[#F7F7F5] border border-black/10 px-3 py-1 rounded-full">
+            <span class="flex items-center text-amber-500 shrink-0" aria-hidden="true">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </span>
+            <span class="text-xs font-semibold text-slate-900 tabular-nums">Nota {{NOTA}} / 5.0 no Google</span>
+            <span class="text-slate-300" aria-hidden="true">&bull;</span>
+            <span class="text-xs text-slate-600 font-medium break-words">{{CIDADE}}</span>
+          </div>
+
+          <h1 class="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold text-slate-900 tracking-[-0.025em] leading-[1.12] break-words">
+            Odontologia clínica com diagnóstico claro e hora marcada em <span class="text-brand-dynamic">{{CIDADE}}</span>.
+          </h1>
+
+          <p class="text-base sm:text-[17px] text-slate-600 leading-relaxed max-w-2xl break-words">
+            Na <strong class="text-slate-900 font-semibold">{{NOME}}</strong>, cada tratamento começa com uma avaliação criteriosa e transparente. Agende seu horário diretamente com a recepção pelo WhatsApp.
+          </p>
+
+          <!-- Cards de Endereço e Atendimento com Alinhamento Óptico Limpo -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+            <!-- Card Endereço -->
+            <div class="bg-[#F7F7F5] border border-black/10 rounded-xl p-4 flex flex-col justify-between min-w-0">
+              <div class="flex items-start gap-3 min-w-0">
+                <div class="w-8 h-8 rounded-lg badge-brand-subtle flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">Localização</span>
+                  <p class="text-sm font-semibold text-slate-900 mt-1 leading-snug break-words">
+                    <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a>
+                  </p>
+                  <p class="text-xs text-slate-500 mt-0.5 break-words">{{CIDADE}}</p>
+                </div>
+              </div>
+
+              <div class="border-t border-black/10 mt-3.5 pt-2.5 flex items-center justify-between gap-2 text-xs">
+                <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-dynamic hover:underline inline-flex items-center gap-1">
+                  <span>Ver no Google Maps</span>
+                  <span aria-hidden="true">&#8599;</span>
+                </a>
+                <button type="button" data-copy-text="{{ENDERECO}}" data-copy-label="Endereço copiado" class="action-pill tactile-press text-[11px] font-medium text-slate-600 bg-slate-200/75 px-2.5 py-1 rounded-md shrink-0">
+                  Copiar
+                </button>
+              </div>
+            </div>
+
+            <!-- Card Atendimento -->
+            <div class="bg-[#F7F7F5] border border-black/10 rounded-xl p-4 flex flex-col justify-between min-w-0">
+              <div class="flex items-start gap-3 min-w-0">
+                <div class="w-8 h-8 rounded-lg badge-brand-subtle flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">Expediente e Contato</span>
+                  <p class="text-sm font-semibold text-slate-900 mt-1 leading-snug break-words">{{HORARIO}}</p>
+                  <p class="text-xs text-slate-600 font-medium mt-0.5 tabular-nums break-words">
+                    WhatsApp: {{WHATSAPP}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="border-t border-black/10 mt-3.5 pt-2.5 flex items-center justify-between gap-2 text-xs">
+                <a href="#" data-wa-direct class="font-semibold text-brand-dynamic hover:underline inline-flex items-center gap-1">
+                  <span>Chamar na recepção</span>
+                  <span aria-hidden="true">&#8599;</span>
+                </a>
+                <button type="button" data-copy-text="{{WHATSAPP}}" data-copy-label="WhatsApp copiado" class="action-pill tactile-press text-[11px] font-medium text-slate-600 bg-slate-200/75 px-2.5 py-1 rounded-md shrink-0">
+                  Copiar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Formulário de Agendamento com Hierarquia Forte -->
+        <div id="agendamento" class="lg:col-span-5 min-w-0 w-full">
+          <div class="surface-form rounded-2xl p-6 sm:p-7">
+            <div class="flex items-start justify-between gap-3 border-b border-black/10 pb-4 mb-5">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-brand-dynamic block">Atendimento Direto</span>
+                <h2 class="font-display text-xl sm:text-2xl font-semibold text-slate-900 mt-0.5 tracking-tight">Solicitar Consulta</h2>
+              </div>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-md shrink-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Via WhatsApp
+              </span>
+            </div>
+
+            <form id="form-agendamento" class="space-y-4">
+              <div>
+                <label for="paciente-nome" class="block text-xs font-semibold text-slate-800 mb-1.5">
+                  Seu Nome Completo
+                </label>
+                <input
+                  type="text"
+                  id="paciente-nome"
+                  name="nome"
+                  required
+                  autocomplete="name"
+                  enterkeyhint="next"
+                  placeholder="Ex: Maria Oliveira"
+                  class="form-input w-full rounded-lg px-3.5 py-2.5 text-slate-900 placeholder-slate-400"
+                >
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-1.5">
+                  <label for="paciente-procedimento" class="block text-xs font-semibold text-slate-800">
+                    Procedimento Desejado
+                  </label>
+                  <span id="proc-confirm-badge" class="confirm-pill text-[11px] font-semibold text-brand-dynamic" data-show="false">
+                    &#10003; Selecionado
+                  </span>
+                </div>
+                <select
+                  id="paciente-procedimento"
+                  name="procedimento"
+                  required
+                  class="form-input w-full rounded-lg px-3.5 py-2.5 text-slate-900"
+                >
+                  <option value="Limpeza/Avaliação">Limpeza / Avaliação</option>
+                  <option value="Clareamento">Clareamento</option>
+                  <option value="Implante">Implante</option>
+                  <option value="Ortodontia">Ortodontia</option>
+                  <option value="Prótese">Prótese</option>
+                  <option value="Urgência">Urgência</option>
+                </select>
+              </div>
+
+              <!-- Segmented Control com Contraste Nítido -->
+              <div>
+                <span id="periodo-label" class="block text-xs font-semibold text-slate-800 mb-1.5">
+                  Melhor Período para Atendimento
+                </span>
+                <input type="hidden" id="paciente-periodo" name="periodo" value="Manhã">
+                <div
+                  id="periodo-segmented"
+                  class="period-segmented"
+                  role="radiogroup"
+                  aria-labelledby="periodo-label"
+                >
+                  <button type="button" role="radio" aria-checked="true" data-periodo-opt="Manhã" class="period-btn">
+                    <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.7.7M4.04 19.96l-.7.7M21 12h-1M4 12H3m16.66 7.66l-.7-.7M4.04 4.04l-.7-.7M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                    <span>Manhã</span>
+                  </button>
+                  <button type="button" role="radio" aria-checked="false" data-periodo-opt="Tarde" class="period-btn">
+                    <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Tarde</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="pt-1.5">
+                <button
+                  type="submit"
+                  id="btn-submit-wa"
+                  class="btn-primary-cta w-full font-semibold text-sm py-3.5 px-5 rounded-lg flex items-center justify-center gap-2"
+                >
+                  <span id="btn-submit-text">Enviar Solicitação via WhatsApp</span>
+                  <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </button>
+              </div>
+
+              <p class="text-center text-xs text-slate-500 pt-0.5 tabular-nums break-words">
+                Atendimento direto pelo número <strong class="text-slate-800 font-semibold">{{WHATSAPP}}</strong>
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Especialidades e Procedimentos -->
+  <section id="especialidades" class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+      <div class="max-w-2xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-dynamic block">Áreas de Atuação</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-semibold text-slate-900 mt-1.5 tracking-[-0.02em]">
+          Procedimentos realizados no consultório
+        </h2>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Selecione um procedimento abaixo para preencher o formulário.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Card 01 -->
+      <article data-select-proc="Limpeza/Avaliação" class="surface-card proc-card rounded-xl p-5 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <div class="w-9 h-9 rounded-lg badge-brand-subtle flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400 tabular-nums">01</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 tracking-tight">Limpeza e Avaliação Clínica</h3>
+          <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Exame clínico completo, profilaxia profissional, remoção de tártaro e diagnóstico preventivo para preservação da saúde bucal.
+          </p>
+        </div>
+        <div class="border-t border-black/10 mt-5 pt-3 flex items-center justify-between text-xs font-semibold text-brand-dynamic">
+          <span>Selecionar avaliação</span>
+          <span class="proc-arrow" aria-hidden="true">&rarr;</span>
+        </div>
+      </article>
+
+      <!-- Card 02 -->
+      <article data-select-proc="Clareamento" class="surface-card proc-card rounded-xl p-5 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <div class="w-9 h-9 rounded-lg badge-brand-subtle flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+              </svg>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400 tabular-nums">02</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 tracking-tight">Clareamento Dental</h3>
+          <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Protocolos clínicos supervisionados para recuperação segura da tonalidade natural dos dentes com proteção do esmalte.
+          </p>
+        </div>
+        <div class="border-t border-black/10 mt-5 pt-3 flex items-center justify-between text-xs font-semibold text-brand-dynamic">
+          <span>Selecionar clareamento</span>
+          <span class="proc-arrow" aria-hidden="true">&rarr;</span>
+        </div>
+      </article>
+
+      <!-- Card 03 -->
+      <article data-select-proc="Implante" class="surface-card proc-card rounded-xl p-5 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <div class="w-9 h-9 rounded-lg badge-brand-subtle flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+              </svg>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400 tabular-nums">03</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 tracking-tight">Implantes Dentários</h3>
+          <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Reabilitação oral com implantes unitários ou múltiplos planejados para reposição fixa e estabilidade mastigatória.
+          </p>
+        </div>
+        <div class="border-t border-black/10 mt-5 pt-3 flex items-center justify-between text-xs font-semibold text-brand-dynamic">
+          <span>Selecionar implante</span>
+          <span class="proc-arrow" aria-hidden="true">&rarr;</span>
+        </div>
+      </article>
+
+      <!-- Card 04 -->
+      <article data-select-proc="Ortodontia" class="surface-card proc-card rounded-xl p-5 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <div class="w-9 h-9 rounded-lg badge-brand-subtle flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16M8 5v14m8-14v14"/>
+              </svg>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400 tabular-nums">04</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 tracking-tight">Ortodontia</h3>
+          <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Estudo e acompanhamento ortodôntico periódico para alinhamento dentário e equilíbrio funcional da oclusão.
+          </p>
+        </div>
+        <div class="border-t border-black/10 mt-5 pt-3 flex items-center justify-between text-xs font-semibold text-brand-dynamic">
+          <span>Selecionar ortodontia</span>
+          <span class="proc-arrow" aria-hidden="true">&rarr;</span>
+        </div>
+      </article>
+
+      <!-- Card 05 -->
+      <article data-select-proc="Prótese" class="surface-card proc-card rounded-xl p-5 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <div class="w-9 h-9 rounded-lg badge-brand-subtle flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400 tabular-nums">05</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 tracking-tight">Prótese Odontológica</h3>
+          <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Confecção e ajuste de coroas, próteses fixas e removíveis sob medida para restabelecer estética e conforto funcional.
+          </p>
+        </div>
+        <div class="border-t border-black/10 mt-5 pt-3 flex items-center justify-between text-xs font-semibold text-brand-dynamic">
+          <span>Selecionar prótese</span>
+          <span class="proc-arrow" aria-hidden="true">&rarr;</span>
+        </div>
+      </article>
+
+      <!-- Card 06: Ícone médico/clínico apropriado (Cruz Clínica de Pronto Atendimento) -->
+      <article data-select-proc="Urgência" class="surface-card proc-card rounded-xl p-5 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <div class="w-9 h-9 rounded-lg badge-brand-subtle flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3z"/>
+              </svg>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400 tabular-nums">06</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 tracking-tight">Atendimento de Urgência</h3>
+          <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Avaliação prioritária para alívio de dor aguda, fraturas dentárias, inflamações ou reparo imediato em próteses e restaurações.
+          </p>
+        </div>
+        <div class="border-t border-black/10 mt-5 pt-3 flex items-center justify-between text-xs font-semibold text-brand-dynamic">
+          <span>Selecionar urgência</span>
+          <span class="proc-arrow" aria-hidden="true">&rarr;</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Avaliações Verificadas no Google -->
+  <section id="avaliacoes" class="bg-white border-y border-black/10 py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-dynamic block">Relatos Verificados</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-semibold text-slate-900 mt-1.5 tracking-[-0.02em]">
+            Avaliações de pacientes no Google
+          </h2>
+        </div>
+
+        <div class="inline-flex items-center gap-3.5 bg-[#F7F7F5] border border-black/10 rounded-xl px-4 py-2.5 self-start md:self-auto shrink-0">
+          <div class="text-2xl font-bold text-slate-900 tabular-nums">{{NOTA}}</div>
+          <div class="border-l border-black/10 pl-3.5">
+            <div class="flex items-center text-amber-500" aria-label="Nota {{NOTA}} de 5 estrelas">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="text-[11px] text-slate-500 font-medium block mt-0.5">Média no Google Maps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="surface-card rounded-xl p-5 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center text-amber-500" aria-hidden="true">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <span class="text-xs font-semibold text-slate-900 tabular-nums">5.0 / 5.0</span>
+            </div>
+            <p class="text-sm text-slate-700 leading-relaxed break-words">
+              "{{AVALIACAO_1}}"
+            </p>
+          </div>
+          <footer class="mt-5 pt-3 border-t border-black/10 flex items-center justify-between text-xs text-slate-500">
+            <span class="truncate">Paciente verificado &bull; Google Maps</span>
+            <span class="font-medium text-slate-700 shrink-0">{{CIDADE}}</span>
+          </footer>
+        </article>
+
+        <article class="surface-card rounded-xl p-5 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center text-amber-500" aria-hidden="true">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <span class="text-xs font-semibold text-slate-900 tabular-nums">5.0 / 5.0</span>
+            </div>
+            <p class="text-sm text-slate-700 leading-relaxed break-words">
+              "{{AVALIACAO_2}}"
+            </p>
+          </div>
+          <footer class="mt-5 pt-3 border-t border-black/10 flex items-center justify-between text-xs text-slate-500">
+            <span class="truncate">Paciente verificado &bull; Google Maps</span>
+            <span class="font-medium text-slate-700 shrink-0">{{CIDADE}}</span>
+          </footer>
+        </article>
+
+        <article class="surface-card rounded-xl p-5 flex flex-col justify-between min-w-0">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center text-amber-500" aria-hidden="true">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <span class="text-xs font-semibold text-slate-900 tabular-nums">5.0 / 5.0</span>
+            </div>
+            <p class="text-sm text-slate-700 leading-relaxed break-words">
+              "{{AVALIACAO_3}}"
+            </p>
+          </div>
+          <footer class="mt-5 pt-3 border-t border-black/10 flex items-center justify-between text-xs text-slate-500">
+            <span class="truncate">Paciente verificado &bull; Google Maps</span>
+            <span class="font-medium text-slate-700 shrink-0">{{CIDADE}}</span>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Localização e Contato Direto (Espaçamento Coeso sem Vazios) -->
+  <section id="localizacao" class="py-10 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-[#0B1220] text-white rounded-2xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-white/10">
+      <div class="lg:col-span-8 space-y-3 min-w-0">
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 block">Canais de Atendimento</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-semibold tracking-tight break-words">
+          Agende sua consulta na {{NOME}}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-3 text-sm text-slate-300 border-t border-white/10">
+          <div class="min-w-0">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block mb-1">Endereço</span>
+            <p class="break-words"><a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer text-white" title="Abrir no Google Maps">{{ENDERECO}}</a></p>
+            <p class="text-slate-400 text-xs mt-0.5 break-words">{{CIDADE}}</p>
+          </div>
+          <div class="min-w-0">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block mb-1">Horário</span>
+            <p class="text-slate-100 break-words">{{HORARIO}}</p>
+          </div>
+          <div class="min-w-0">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block mb-1">WhatsApp</span>
+            <p class="text-white font-semibold tabular-nums break-words"><a href="#" data-wa-direct class="hover:underline">{{WHATSAPP}}</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
+        <a href="#agendamento" class="btn-primary-cta w-full text-sm font-semibold py-3.5 px-5 rounded-lg text-center">
+          Agendar pelo Formulário
+        </a>
+        <a href="#" data-wa-direct class="tactile-press w-full bg-white/10 hover:bg-white/15 text-white border border-white/15 text-sm font-semibold py-3.5 px-5 rounded-lg text-center">
+          Chamar no WhatsApp Agora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-white border-t border-black/10 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <div class="text-center sm:text-left min-w-0 break-words">
+        <strong class="text-slate-900 font-semibold">{{NOME}}</strong> &mdash;
+        <a href="{{LINK_MAPS}}" target="_blank" rel="noopener noreferrer" class="hover:underline cursor-pointer" title="Abrir no Google Maps">{{ENDERECO}}</a>
+        &mdash; {{CIDADE}}
+      </div>
+      <div class="tabular-nums text-center sm:text-right shrink-0">
+        Horário: {{HORARIO}} | WhatsApp: <a href="#" data-wa-direct class="text-brand-dynamic font-semibold hover:underline">{{WHATSAPP}}</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Barra Mobile Fixa -->
+  <div class="mobile-bar fixed bottom-0 inset-x-0 z-40 md:hidden bg-white/95 backdrop-blur-md border-t border-black/10 px-4 pt-2.5">
+    <div class="grid grid-cols-2 gap-2.5 max-w-md mx-auto">
+      <a href="#agendamento" class="btn-primary-cta text-xs font-semibold py-3 px-4 rounded-lg text-center">
+        Agendar Horário
+      </a>
+      <a href="#" data-wa-direct class="tactile-press bg-slate-100 text-slate-900 border border-black/10 text-xs font-semibold py-3 px-4 rounded-lg text-center">
+        WhatsApp Direto
+      </a>
+    </div>
+  </div>
+
+  <!-- Região de Toasts -->
+  <div id="toast-stack" class="toast-stack" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Script de Agendamento e Micro-interações -->
+  <script>
+    (function () {
+      var rawPhone = "{{WHATSAPP}}";
+      var cleanPhone = rawPhone.replace(/\D/g, "");
+      if (cleanPhone.length >= 10 && cleanPhone.length <= 11 && !cleanPhone.startsWith("55")) {
+        cleanPhone = "55" + cleanPhone;
+      }
+
+      // 1. Links diretos para WhatsApp
+      document.querySelectorAll("[data-wa-direct]").forEach(function (link) {
+        if (cleanPhone) {
+          var defaultMsg = encodeURIComponent("Olá! Gostaria de informações sobre agendamento de consulta na {{NOME}}.");
+          link.setAttribute("href", "https://wa.me/" + cleanPhone + "?text=" + defaultMsg);
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        }
+      });
+
+      // 2. Toast rápido e discreto
+      var toastStack = document.getElementById("toast-stack");
+      function notify(text) {
+        if (!toastStack) return;
+        while (toastStack.children.length >= 2) {
+          toastStack.removeChild(toastStack.firstChild);
+        }
+        var el = document.createElement("div");
+        el.className = "toast-item";
+        el.setAttribute("data-hidden", "true");
+        el.setAttribute("role", "status");
+        el.innerHTML =
+          '<svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">' +
+          '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' +
+          '<span></span>';
+        el.querySelector("span").textContent = text;
+        toastStack.appendChild(el);
+
+        requestAnimationFrame(function () {
+          el.setAttribute("data-hidden", "false");
+        });
+
+        var hide = function () {
+          el.setAttribute("data-hidden", "true");
+          setTimeout(function () {
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }, 180);
+        };
+        el.addEventListener("click", hide);
+        setTimeout(hide, 2400);
+      }
+
+      // 3. Ações de copiar endereço / WhatsApp
+      document.querySelectorAll("[data-copy-text]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var text = btn.getAttribute("data-copy-text") || "";
+          var label = btn.getAttribute("data-copy-label") || "Copiado";
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+              notify(label);
+            }).catch(function () {
+              notify(label);
+            });
+          } else {
+            notify(label);
+          }
+        });
+      });
+
+      // 4. Segmented Control de Período (Manhã / Tarde) com suporte a teclado
+      var segmented = document.getElementById("periodo-segmented");
+      var periodoInput = document.getElementById("paciente-periodo");
+      if (segmented && periodoInput) {
+        var buttons = Array.prototype.slice.call(segmented.querySelectorAll("[data-periodo-opt]"));
+        function selectPeriod(targetBtn, focusBtn) {
+          var val = targetBtn.getAttribute("data-periodo-opt");
+          periodoInput.value = val;
+          buttons.forEach(function (b) {
+            var active = b === targetBtn;
+            b.setAttribute("aria-checked", active ? "true" : "false");
+            b.setAttribute("tabindex", active ? "0" : "-1");
+          });
+          if (focusBtn) targetBtn.focus();
+        }
+        buttons.forEach(function (btn, idx) {
+          btn.addEventListener("click", function () {
+            selectPeriod(btn, false);
+          });
+          btn.addEventListener("keydown", function (e) {
+            if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+              e.preventDefault();
+              var next = buttons[(idx + 1) % buttons.length];
+              selectPeriod(next, true);
+            }
+          });
+        });
+      }
+
+      // 5. Clique nos cards de procedimento -> rola até o formulário e destaca o select
+      var procSelect = document.getElementById("paciente-procedimento");
+      var nomeInput = document.getElementById("paciente-nome");
+      var confirmBadge = document.getElementById("proc-confirm-badge");
+      var formSection = document.getElementById("agendamento");
+      var highlightTimer = null;
+
+      document.querySelectorAll("[data-select-proc]").forEach(function (card) {
+        card.addEventListener("click", function (e) {
+          e.preventDefault();
+          var proc = card.getAttribute("data-select-proc");
+          if (formSection) {
+            formSection.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+          if (procSelect && proc) {
+            procSelect.value = proc;
+            procSelect.classList.add("form-input-highlighted");
+            if (confirmBadge) confirmBadge.setAttribute("data-show", "true");
+            clearTimeout(highlightTimer);
+            highlightTimer = setTimeout(function () {
+              procSelect.classList.remove("form-input-highlighted");
+              if (confirmBadge) confirmBadge.setAttribute("data-show", "false");
+            }, 1400);
+            notify("Procedimento selecionado: " + proc);
+          }
+          if (nomeInput && !nomeInput.value.trim()) {
+            setTimeout(function () { nomeInput.focus({ preventScroll: true }); }, 350);
+          }
+        });
+      });
+
+      // 6. Envio do Formulário para o WhatsApp
+      var form = document.getElementById("form-agendamento");
+      var submitText = document.getElementById("btn-submit-text");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var nome = document.getElementById("paciente-nome").value.trim();
+          var procedimento = document.getElementById("paciente-procedimento").value;
+          var periodo = document.getElementById("paciente-periodo").value;
+
+          var mensagem = "Olá! Gostaria de solicitar o agendamento de uma consulta na {{NOME}}.\n\n" +
+            "*Nome:* " + nome + "\n" +
+            "*Procedimento:* " + procedimento + "\n" +
+            "*Período de preferência:* " + periodo;
+
+          var targetPhone = cleanPhone || "5500000000000";
+          var url = "https://wa.me/" + targetPhone + "?text=" + encodeURIComponent(mensagem);
+
+          if (submitText) {
+            var original = submitText.textContent;
+            submitText.textContent = "Abrindo WhatsApp...";
+            setTimeout(function () {
+              submitText.textContent = original;
+            }, 1500);
+          }
+
+          window.open(url, "_blank", "noopener,noreferrer");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
